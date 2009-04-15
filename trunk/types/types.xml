@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="pangeatranslator.types" default="pnml types">
+
+
+    <property file="types.properties"/>
+
+    <property name="types.basedir" value="${basedir}"/>
+    <property name="types.xsddir" value="${basedir}/xsd"/>
+
+
+    <path id="classpath">
+        <fileset dir="${jibx.basedir}/lib" includes="*.jar"/>
+        <pathelement location="bin"/>
+    </path>
+
+
+    <!-- GENERATE TYPES FROM XML SCHEMA FILE -->
+    <target name="type generator">
+
+        <delete dir="${types.basedir}/java"/>
+
+        <java classname="org.jibx.schema.codegen.CodeGen" fork="yes" classpathref="classpath" failonerror="true" dir="xsd">
+            <arg value="-t"/>
+            <arg value="${types.basedir}/java"/>
+            <arg value="${xsd.file}"/>
+        </java>
+
+    </target>
+
+
+    <!-- GENERATE BIND NEW TYPES AND CREATE A JAR FILE IN LIB FOLDER -->
+    <target name="type binder">
+        <delete dir="classes"/>
+        <mkdir dir="classes"/>
+
+        <javac srcdir="java" destdir="classes" debug="on"/>
+
+        <java classname="org.jibx.binding.Compile" fork="yes" classpathref="classpath" failonerror="true" dir="classes">
+            <arg value="../java/binding.xml"/>
+        </java>
+
+        <jar destfile="../lib/${jar.file}" basedir="classes"/>
+
+    </target>
+
+
+
+
+    <!-- TARGET FOR PNML TYPES -->
+    <target name="pnml types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="pnml.xsd"/>
+        </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="pnml_types.jar"/>
+        </antcall>
+
+    </target>
+
+</project>

@@ -1,0 +1,106 @@
+<binding xmlns:tns="http://www.pangea.net/type" name="binding" package="net.pangea.type">
+  <namespace uri="http://www.pangea.net/type" default="elements"/>
+  <mapping class="net.pangea.type.Type" name="type">
+    <format type="net.pangea.type.Type$Value" enum-value-method="toString"/>
+    <value style="attribute" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Transition" name="transition">
+    <structure type="net.pangea.type.Graphics" get-method="getGraphics" set-method="setGraphics" usage="optional"/>
+    <structure type="net.pangea.type.Name" get-method="getName" set-method="setName"/>
+    <structure type="net.pangea.type.Orientation" get-method="getOrientation" set-method="setOrientation" usage="optional"/>
+    <structure type="net.pangea.type.Rate" get-method="getRate" set-method="setRate" usage="optional"/>
+    <structure type="net.pangea.type.Timed" get-method="getTimed" set-method="setTimed" usage="optional"/>
+    <structure type="net.pangea.type.InfiniteServer" get-method="getInfiniteServer" set-method="setInfiniteServer" usage="optional"/>
+    <structure type="net.pangea.type.Priority" get-method="getPriority" set-method="setPriority" usage="optional"/>
+    <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+  </mapping>
+  <mapping class="net.pangea.type.Timed" name="timed">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Tagged" name="tagged">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Rate" name="rate">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Priority" name="priority">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Position" name="position">
+    <value style="attribute" name="y" get-method="getY" set-method="setY" usage="optional"/>
+    <value style="attribute" name="x" get-method="getX" set-method="setX" usage="optional"/>
+  </mapping>
+  <mapping class="net.pangea.type.Pnml" name="pnml">
+    <structure type="net.pangea.type.Net" get-method="getPnml" set-method="setPnml"/>
+  </mapping>
+  <mapping class="net.pangea.type.Place" name="place">
+    <structure type="net.pangea.type.Graphics" get-method="getGraphics" set-method="setGraphics" usage="optional"/>
+    <structure type="net.pangea.type.Name" get-method="getName" set-method="setName"/>
+    <structure type="net.pangea.type.InitialMarking" get-method="getInitialMarking" set-method="setInitialMarking" usage="optional"/>
+    <structure type="net.pangea.type.Capacity" get-method="getCapacity" set-method="setCapacity" usage="optional"/>
+    <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+  </mapping>
+  <mapping class="net.pangea.type.Orientation" name="orientation">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Offset" name="offset">
+    <value style="attribute" name="y" get-method="getY" set-method="setY" usage="optional"/>
+    <value style="attribute" name="x" get-method="getX" set-method="setX" usage="optional"/>
+  </mapping>
+  <mapping class="net.pangea.type.Net" name="net">
+    <collection item-type="net.pangea.type.Labels" get-method="getLabels" set-method="setLabels" create-type="java.util.ArrayList"/>
+    <collection item-type="net.pangea.type.Place" get-method="getPlaces" set-method="setPlaces" create-type="java.util.ArrayList"/>
+    <collection item-type="net.pangea.type.Transition" get-method="getTransitions" set-method="setTransitions" create-type="java.util.ArrayList"/>
+    <collection item-type="net.pangea.type.Arc" get-method="getArcs" set-method="setArcs" create-type="java.util.ArrayList"/>
+    <value style="attribute" name="type" get-method="getType" set-method="setType"/>
+    <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+  </mapping>
+  <mapping class="net.pangea.type.Name" name="name">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+    <structure type="net.pangea.type.Graphics" get-method="getGraphics" set-method="setGraphics" usage="optional"/>
+  </mapping>
+  <mapping class="net.pangea.type.Labels" name="labels">
+    <value style="element" name="text" get-method="getText" set-method="setText"/>
+    <value style="attribute" name="y" get-method="getY" set-method="setY" usage="optional"/>
+    <value style="attribute" name="x" get-method="getX" set-method="setX" usage="optional"/>
+    <value style="attribute" name="width" get-method="getWidth" set-method="setWidth"/>
+    <value style="attribute" name="height" get-method="getHeight" set-method="setHeight"/>
+    <value style="attribute" name="border" get-method="getBorder" set-method="setBorder"/>
+  </mapping>
+  <mapping class="net.pangea.type.Inscription" name="inscription">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+    <structure type="net.pangea.type.Graphics" get-method="getGraphics" set-method="setGraphics" usage="optional"/>
+  </mapping>
+  <mapping class="net.pangea.type.InitialMarking" name="initialMarking">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+    <structure type="net.pangea.type.Graphics" get-method="getGraphics" set-method="setGraphics" usage="optional"/>
+  </mapping>
+  <mapping class="net.pangea.type.InfiniteServer" name="infiniteServer">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Graphics" name="graphics">
+    <structure get-method="getGraphics" set-method="setGraphics" usage="optional" ordered="false" choice="true">
+      <structure type="net.pangea.type.Offset" test-method="ifOffset" get-method="getOffset" set-method="setOffset" usage="optional"/>
+      <structure type="net.pangea.type.Position" test-method="ifPosition" get-method="getPosition" set-method="setPosition" usage="optional"/>
+    </structure>
+  </mapping>
+  <mapping class="net.pangea.type.Capacity" name="capacity">
+    <value style="element" name="value" get-method="getValue" set-method="setValue"/>
+  </mapping>
+  <mapping class="net.pangea.type.Arcpath" name="arcpath">
+    <value style="attribute" name="y" get-method="getY" set-method="setY" usage="optional"/>
+    <value style="attribute" name="x" get-method="getX" set-method="setX" usage="optional"/>
+    <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+    <value style="attribute" name="curvePoint" get-method="getCurvePoint" set-method="setCurvePoint"/>
+  </mapping>
+  <mapping class="net.pangea.type.Arc" name="arc">
+    <structure type="net.pangea.type.Graphics" get-method="getGraphics" set-method="setGraphics" usage="optional"/>
+    <structure type="net.pangea.type.Inscription" get-method="getInscription" set-method="setInscription" usage="optional"/>
+    <structure type="net.pangea.type.Tagged" get-method="getTagged" set-method="setTagged" usage="optional"/>
+    <collection item-type="net.pangea.type.Arcpath" get-method="getArcpaths" set-method="setArcpaths" create-type="java.util.ArrayList"/>
+    <structure type="net.pangea.type.Type" get-method="getType" set-method="setType"/>
+    <value style="attribute" name="target" get-method="getTarget" set-method="setTarget"/>
+    <value style="attribute" name="source" get-method="getSource" set-method="setSource"/>
+    <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+  </mapping>
+</binding>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 (http://www.altova.com) by mazuki (darksiderg) -->
+<!--<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://type.pnml.org" targetNamespace="http://type.pnml.org">-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.pangea.net/type" targetNamespace="http://www.pangea.net/type" elementFormDefault="qualified">
+	<xs:element name="type">
+		<xs:complexType>
+			<xs:attribute name="value" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="inhibitor"/>
+						<xs:enumeration value="normal"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="transition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="graphics" minOccurs="0"/>
+				<xs:element ref="name"/>
+				<xs:element ref="orientation" minOccurs="0"/>
+				<xs:element ref="rate" minOccurs="0"/>
+				<xs:element ref="timed" minOccurs="0"/>
+				<xs:element ref="infiniteServer" minOccurs="0"/>
+				<xs:element ref="priority" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="timed">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tagged">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="priority">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="position">
+		<xs:complexType>
+			<xs:attribute name="y" type="xs:decimal"/>
+			<xs:attribute name="x" type="xs:decimal"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pnml">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="net"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="place">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="graphics" minOccurs="0"/>
+				<xs:element ref="name"/>
+				<xs:element ref="initialMarking" minOccurs="0"/>
+				<xs:element ref="capacity" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="orientation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="offset">
+		<xs:complexType>
+			<xs:attribute name="y" type="xs:decimal"/>
+			<xs:attribute name="x" type="xs:decimal"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="net">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="labels" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="place" maxOccurs="unbounded"/>
+				<xs:element ref="transition" maxOccurs="unbounded"/>
+				<xs:element ref="arc" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="type" type="xs:string" use="required"/>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="name">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+				<xs:element ref="graphics" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="labels">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="text" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="y" type="xs:decimal"/>
+			<xs:attribute name="x" type="xs:decimal"/>
+			<xs:attribute name="width" type="xs:decimal" use="required"/>
+			<xs:attribute name="height" type="xs:decimal" use="required"/>
+			<xs:attribute name="border" type="xs:boolean" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inscription">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+				<xs:element ref="graphics" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="initialMarking">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+				<xs:element ref="graphics" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="infiniteServer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="graphics">
+		<xs:complexType>
+			<xs:choice minOccurs="0">
+				<xs:element ref="offset"/>
+				<xs:element ref="position"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="capacity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="value" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="arcpath">
+		<xs:complexType>
+			<xs:attribute name="y" type="xs:decimal"/>
+			<xs:attribute name="x" type="xs:decimal"/>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+			<xs:attribute name="curvePoint" type="xs:boolean" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="arc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="graphics" minOccurs="0"/>
+				<xs:element ref="inscription" minOccurs="0"/>
+				<xs:element ref="tagged" minOccurs="0"/>
+				<xs:element ref="arcpath" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="type"/>
+			</xs:sequence>
+			<xs:attribute name="target" type="xs:string" use="required"/>
+			<xs:attribute name="source" type="xs:string" use="required"/>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
