@@ -59,18 +59,26 @@ public class Cache {
     }
 
 
-
+    /**
+     * Retrieves the Equation of the reaction from the KEGG or from the cache if already fetched.
+     * @param reaction ID of the reaction
+     * @return Equation of the reaction
+     * @throws Exception exception
+     */
     public static Equation getReaction(String reaction) throws Exception{
         Equation res = reactions.get(reaction);
 
         if (res==null){
-            res = Retriever.getEquation(Retriever.equationRetriever(Retriever.getFromKegg(reaction)));
+            res = Retriever.getEquation(reaction, Retriever.equationRetriever(Retriever.getFromKegg(reaction)));
             reactions.put(reaction,res);
         }
 
         return res;
     }
 
+    /**
+     * Prints out the cached Equations.
+     */
     public static void soutEquations() {
         int i = 0;
         for (String k:reactions.keySet()){

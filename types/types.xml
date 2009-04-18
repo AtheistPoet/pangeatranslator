@@ -20,6 +20,8 @@
         <delete dir="${types.basedir}/java"/>
 
         <java classname="org.jibx.schema.codegen.CodeGen" fork="yes" classpathref="classpath" failonerror="true" dir="xsd">
+            <arg value="-c"/>
+            <arg value="${types.basedir}/prefs.xml"/>
             <arg value="-t"/>
             <arg value="${types.basedir}/java"/>
             <arg value="${xsd.file}"/>
@@ -56,6 +58,12 @@
             <param name="jar.file" value="pnml_types.jar"/>
         </antcall>
 
+    </target>
+
+    <target name="pnml binder">
+        <antcall target="type binder">
+            <param name="jar.file" value="pnml_types.jar"/>
+        </antcall>
     </target>
 
 </project>

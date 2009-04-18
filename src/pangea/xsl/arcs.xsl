@@ -24,6 +24,24 @@
             </xsl:call-template>
         </xsl:for-each>
 
+        <xsl:if test="@type='reversible'">
+            <xsl:for-each select="product">
+                <xsl:call-template name="setSingleArc">
+                    <xsl:with-param name="arc_id"><xsl:value-of select="@name"/> to <xsl:value-of select="../@name"/>#rev</xsl:with-param>
+                    <xsl:with-param name="arc_source" select="@name"/>
+                    <xsl:with-param name="arc_target"><xsl:value-of select="../@name"/>#rev</xsl:with-param>
+                </xsl:call-template>
+            </xsl:for-each>
+
+            <xsl:for-each select="substrate">
+                <xsl:call-template name="setSingleArc">
+                    <xsl:with-param name="arc_id"><xsl:value-of select="../@name"/>#rev to <xsl:value-of select="@name"/></xsl:with-param>
+                    <xsl:with-param name="arc_source"><xsl:value-of  select="../@name"/>#rev</xsl:with-param>
+                    <xsl:with-param name="arc_target" select="@name"/>
+                </xsl:call-template>
+            </xsl:for-each>
+        </xsl:if>
+
     </xsl:template>
 
     <xsl:template mode="setSingleArc" name="setSingleArc" match="reaction">
@@ -33,7 +51,8 @@
         <xsl:param name="arc_target"/>
         <xsl:param name="arc_type" select="'normal'"/>
 
-        <arc xmlns="http://www.pangea.net/type">
+        <!--<arc xmlns="http://www.pangea.net/type">-->
+        <arc>
             <xsl:attribute name="id"><xsl:value-of select="$arc_id"/></xsl:attribute>
             <xsl:attribute name="source"><xsl:value-of select="$arc_source"/></xsl:attribute>
             <xsl:attribute name="target"><xsl:value-of select="$arc_target"/></xsl:attribute>

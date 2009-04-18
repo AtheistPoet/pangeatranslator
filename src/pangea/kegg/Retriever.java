@@ -34,7 +34,7 @@ public class Retriever {
         return matcher.find()?matcher.group(1):null;
     }
 
-    public static Equation getEquation(String eq) throws Exception{
+    public static Equation getEquation(String id, String eq) throws Exception{
 
         int type = Equation.TYPE_REVERSIBLE;
 
@@ -53,6 +53,6 @@ public class Retriever {
         for (int i = 0; i < fhalf.length; i++) felements[i] = EqElement.getElementFromString(fhalf[i]);
         for (int i = 0; i < shalf.length; i++) selements[i] = EqElement.getElementFromString(shalf[i]);
 
-        return new Equation(felements,selements,type);
+        return new Equation(id, felements,selements,type);
     }
 }

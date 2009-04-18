@@ -5,7 +5,8 @@
     </xsl:template>
 
     <xsl:template mode="setNameLable" name="setNameLable" match="pathway">
-        <labels xmlns="http://www.pangea.net/type" x="20" y="20" width="105" height="25" border="true">
+        <!--<labels xmlns="http://www.pangea.net/type" x="20" y="20" width="105" height="25" border="true">-->
+        <labels x="20" y="20" width="105" height="25" border="true">
 			<text><xsl:value-of select="@title"/></text>
 		</labels>
     </xsl:template>

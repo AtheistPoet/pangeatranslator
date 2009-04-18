@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pnml xmlns="http://www.pangea.net/type">
+<pnml>
    <net type="P/T net" id="ko00010">
       <labels x="20" y="20" width="105" height="25" border="true">
          <text>Glycolysis / Gluconeogenesis</text>
@@ -170,6 +170,17 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R00710#rev">
+         <name>
+            <value>rn:R00710#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R00235">
          <name>
             <value>rn:R00235</value>
@@ -181,9 +192,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R00235#rev">
+         <name>
+            <value>rn:R00235#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R00711">
          <name>
             <value>rn:R00711</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R00711#rev">
+         <name>
+            <value>rn:R00711#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -214,9 +247,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R00746#rev">
+         <name>
+            <value>rn:R00746#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R00754">
          <name>
             <value>rn:R00754</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R00754#rev">
+         <name>
+            <value>rn:R00754#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -258,9 +313,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R02569#rev">
+         <name>
+            <value>rn:R02569#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R00703">
          <name>
             <value>rn:R00703</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R00703#rev">
+         <name>
+            <value>rn:R00703#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -291,9 +368,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R00658#rev">
+         <name>
+            <value>rn:R00658#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01518">
          <name>
             <value>rn:R01518</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01518#rev">
+         <name>
+            <value>rn:R01518#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -313,9 +412,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R01061#rev">
+         <name>
+            <value>rn:R01061#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01063">
          <name>
             <value>rn:R01063</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01063#rev">
+         <name>
+            <value>rn:R01063#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -335,9 +456,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R01015#rev">
+         <name>
+            <value>rn:R01015#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01070">
          <name>
             <value>rn:R01070</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01070#rev">
+         <name>
+            <value>rn:R01070#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -390,9 +533,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R02740#rev">
+         <name>
+            <value>rn:R02740#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R00959">
          <name>
             <value>rn:R00959</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R00959#rev">
+         <name>
+            <value>rn:R00959#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -412,9 +577,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R03321#rev">
+         <name>
+            <value>rn:R03321#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01600">
          <name>
             <value>rn:R01600</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01600#rev">
+         <name>
+            <value>rn:R01600#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -434,9 +621,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R02739#rev">
+         <name>
+            <value>rn:R02739#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01602">
          <name>
             <value>rn:R01602</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01602#rev">
+         <name>
+            <value>rn:R01602#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -459,6 +668,17 @@
       <transition id="rn:R01788">
          <name>
             <value>rn:R01788</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01788#rev">
+         <name>
+            <value>rn:R01788#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -500,9 +720,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R07618#rev">
+         <name>
+            <value>rn:R07618#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01512">
          <name>
             <value>rn:R01512</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01512#rev">
+         <name>
+            <value>rn:R01512#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -525,6 +767,17 @@
       <transition id="rn:R02187">
          <name>
             <value>rn:R02187</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R02187#rev">
+         <name>
+            <value>rn:R02187#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -654,6 +907,17 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R01196#rev">
+         <name>
+            <value>rn:R01196#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01516">
          <name>
             <value>rn:R01516</value>
@@ -665,9 +929,31 @@
             <value>false</value>
          </timed>
       </transition>
+      <transition id="rn:R01516#rev">
+         <name>
+            <value>rn:R01516#rev</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
       <transition id="rn:R01662">
          <name>
             <value>rn:R01662</value>
+         </name>
+         <rate>
+            <value>1.0</value>
+         </rate>
+         <timed>
+            <value>false</value>
+         </timed>
+      </transition>
+      <transition id="rn:R01662#rev">
+         <name>
+            <value>rn:R01662#rev</value>
          </name>
          <rate>
             <value>1.0</value>
@@ -690,6 +976,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00033 to rn:R00710#rev" source="cpd:C00033" target="rn:R00710#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00710#rev to cpd:C00084" source="rn:R00710#rev" target="cpd:C00084">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00033 to rn:R00235" source="cpd:C00033" target="rn:R00235">
          <inscription>
             <value>1</value>
@@ -704,6 +1004,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00024 to rn:R00235#rev" source="cpd:C00024" target="rn:R00235#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00235#rev to cpd:C00033" source="rn:R00235#rev" target="cpd:C00033">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00084 to rn:R00711" source="cpd:C00084" target="rn:R00711">
          <inscription>
             <value>1</value>
@@ -712,6 +1026,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R00711 to cpd:C00033" source="rn:R00711" target="cpd:C00033">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00033 to rn:R00711#rev" source="cpd:C00033" target="rn:R00711#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00711#rev to cpd:C00084" source="rn:R00711#rev" target="cpd:C00084">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -746,6 +1074,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00084 to rn:R00746#rev" source="cpd:C00084" target="rn:R00746#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00746#rev to cpd:C00469" source="rn:R00746#rev" target="cpd:C00469">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00469 to rn:R00754" source="cpd:C00469" target="rn:R00754">
          <inscription>
             <value>1</value>
@@ -754,6 +1096,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R00754 to cpd:C00084" source="rn:R00754" target="cpd:C00084">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00084 to rn:R00754#rev" source="cpd:C00084" target="rn:R00754#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00754#rev to cpd:C00469" source="rn:R00754#rev" target="cpd:C00469">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -830,6 +1186,27 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C16255 to rn:R02569#rev" source="cpd:C16255" target="rn:R02569#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R02569#rev to cpd:C15973" source="rn:R02569#rev" target="cpd:C15973">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R02569#rev to cpd:C00024" source="rn:R02569#rev" target="cpd:C00024">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00186 to rn:R00703" source="cpd:C00186" target="rn:R00703">
          <inscription>
             <value>1</value>
@@ -838,6 +1215,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R00703 to cpd:C00022" source="rn:R00703" target="cpd:C00022">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00022 to rn:R00703#rev" source="cpd:C00022" target="rn:R00703#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00703#rev to cpd:C00186" source="rn:R00703#rev" target="cpd:C00186">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -872,6 +1263,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00074 to rn:R00658#rev" source="cpd:C00074" target="rn:R00658#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00658#rev to cpd:C00631" source="rn:R00658#rev" target="cpd:C00631">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00631 to rn:R01518" source="cpd:C00631" target="rn:R01518">
          <inscription>
             <value>1</value>
@@ -880,6 +1285,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01518 to cpd:C00197" source="rn:R01518" target="cpd:C00197">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00197 to rn:R01518#rev" source="cpd:C00197" target="rn:R01518#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01518#rev to cpd:C00631" source="rn:R01518#rev" target="cpd:C00631">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -900,6 +1319,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00236 to rn:R01061#rev" source="cpd:C00236" target="rn:R01061#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01061#rev to cpd:C00118" source="rn:R01061#rev" target="cpd:C00118">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00118 to rn:R01063" source="cpd:C00118" target="rn:R01063">
          <inscription>
             <value>1</value>
@@ -914,6 +1347,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00236 to rn:R01063#rev" source="cpd:C00236" target="rn:R01063#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01063#rev to cpd:C00118" source="rn:R01063#rev" target="cpd:C00118">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00118 to rn:R01015" source="cpd:C00118" target="rn:R01015">
          <inscription>
             <value>1</value>
@@ -922,6 +1369,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01015 to cpd:C00111" source="rn:R01015" target="cpd:C00111">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00111 to rn:R01015#rev" source="cpd:C00111" target="rn:R01015#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01015#rev to cpd:C00118" source="rn:R01015#rev" target="cpd:C00118">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -943,6 +1404,27 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01070 to cpd:C00111" source="rn:R01070" target="cpd:C00111">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00118 to rn:R01070#rev" source="cpd:C00118" target="rn:R01070#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00111 to rn:R01070#rev" source="cpd:C00111" target="rn:R01070#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01070#rev to cpd:C05378" source="rn:R01070#rev" target="cpd:C05378">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1005,6 +1487,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C05345 to rn:R02740#rev" source="cpd:C05345" target="rn:R02740#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R02740#rev to cpd:C00668" source="rn:R02740#rev" target="cpd:C00668">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00103 to rn:R00959" source="cpd:C00103" target="rn:R00959">
          <inscription>
             <value>1</value>
@@ -1013,6 +1509,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R00959 to cpd:C00668" source="rn:R00959" target="cpd:C00668">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00668 to rn:R00959#rev" source="cpd:C00668" target="rn:R00959#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R00959#rev to cpd:C00103" source="rn:R00959#rev" target="cpd:C00103">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1033,6 +1543,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C05345 to rn:R03321#rev" source="cpd:C05345" target="rn:R03321#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R03321#rev to cpd:C01172" source="rn:R03321#rev" target="cpd:C01172">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00221 to rn:R01600" source="cpd:C00221" target="rn:R01600">
          <inscription>
             <value>1</value>
@@ -1041,6 +1565,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01600 to cpd:C01172" source="rn:R01600" target="cpd:C01172">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C01172 to rn:R01600#rev" source="cpd:C01172" target="rn:R01600#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01600#rev to cpd:C00221" source="rn:R01600#rev" target="cpd:C00221">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1061,6 +1599,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C01172 to rn:R02739#rev" source="cpd:C01172" target="rn:R02739#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R02739#rev to cpd:C00668" source="rn:R02739#rev" target="cpd:C00668">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00267 to rn:R01602" source="cpd:C00267" target="rn:R01602">
          <inscription>
             <value>1</value>
@@ -1069,6 +1621,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01602 to cpd:C00221" source="rn:R01602" target="cpd:C00221">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00221 to rn:R01602#rev" source="cpd:C00221" target="rn:R01602#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01602#rev to cpd:C00267" source="rn:R01602#rev" target="cpd:C00267">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1097,6 +1663,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01788 to cpd:C00267" source="rn:R01788" target="cpd:C00267">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00267 to rn:R01788#rev" source="cpd:C00267" target="rn:R01788#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01788#rev to cpd:C00668" source="rn:R01788#rev" target="cpd:C00668">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1145,6 +1725,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C15972 to rn:R07618#rev" source="cpd:C15972" target="rn:R07618#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R07618#rev to cpd:C15973" source="rn:R07618#rev" target="cpd:C15973">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00197 to rn:R01512" source="cpd:C00197" target="rn:R01512">
          <inscription>
             <value>1</value>
@@ -1153,6 +1747,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01512 to cpd:C00236" source="rn:R01512" target="cpd:C00236">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C00236 to rn:R01512#rev" source="cpd:C00236" target="rn:R01512#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01512#rev to cpd:C00197" source="rn:R01512#rev" target="cpd:C00197">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1181,6 +1789,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R02187 to cpd:C01172" source="rn:R02187" target="cpd:C01172">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C01172 to rn:R02187#rev" source="cpd:C01172" target="rn:R02187#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R02187#rev to cpd:C00221" source="rn:R02187#rev" target="cpd:C00221">
          <inscription>
             <value>1</value>
             <graphics/>
@@ -1341,6 +1963,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00022 to rn:R01196#rev" source="cpd:C00022" target="rn:R01196#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01196#rev to cpd:C00024" source="rn:R01196#rev" target="cpd:C00024">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C01159 to rn:R01516" source="cpd:C01159" target="rn:R01516">
          <inscription>
             <value>1</value>
@@ -1355,6 +1991,20 @@
          </inscription>
          <type value="normal"/>
       </arc>
+      <arc id="cpd:C00197 to rn:R01516#rev" source="cpd:C00197" target="rn:R01516#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01516#rev to cpd:C01159" source="rn:R01516#rev" target="cpd:C01159">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
       <arc id="cpd:C00236 to rn:R01662" source="cpd:C00236" target="rn:R01662">
          <inscription>
             <value>1</value>
@@ -1363,6 +2013,20 @@
          <type value="normal"/>
       </arc>
       <arc id="rn:R01662 to cpd:C01159" source="rn:R01662" target="cpd:C01159">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="cpd:C01159 to rn:R01662#rev" source="cpd:C01159" target="rn:R01662#rev">
+         <inscription>
+            <value>1</value>
+            <graphics/>
+         </inscription>
+         <type value="normal"/>
+      </arc>
+      <arc id="rn:R01662#rev to cpd:C00236" source="rn:R01662#rev" target="cpd:C00236">
          <inscription>
             <value>1</value>
             <graphics/>

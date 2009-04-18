@@ -8,7 +8,8 @@
 
 
     <xsl:template mode="setSinglePlace" name="setSinglePlace" match="entry">
-        <place xmlns="http://www.pangea.net/type">
+        <!--<place xmlns="http://www.pangea.net/type">-->
+        <place>
             <xsl:attribute name="id"><xsl:value-of select="@name"/></xsl:attribute>
 			<name>
 				<value><xsl:value-of select="@name"/></value>
