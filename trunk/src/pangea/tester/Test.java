@@ -8,6 +8,7 @@ import java.io.*;
 
 import pangea.xslt.XSLTransformer;
 import pangea.mem.Cache;
+import pangea.kegg.types.Equation;
 
 public class Test {
 
@@ -40,10 +41,12 @@ public class Test {
 
             int i = 0;
             for (Transition transition:p.getPnml().getTransitions()){
-                try{
-                    Cache.getReaction(transition.getId());
-                } catch (Exception e) {
-                    i++;
+                if (!transition.getId().endsWith("#rev")){
+                    try{
+                        Cache.getReaction(transition.getId());
+                    } catch (Exception e) {
+                        i++;
+                    }
                 }
             }
 
@@ -51,7 +54,9 @@ public class Test {
 
             Cache.soutEquations();
 
+            setWeights(p, bfact.createMarshallingContext(), result);
 
+            
             //IMarshallingContext mcon = bfact.createMarshallingContext();
 
             //mcon.marshalDocument(p,"UTF-8",null,new FileOutputStream(""));
@@ -62,6 +67,41 @@ public class Test {
             System.out.println("eccezione nel file xml");
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+    }
+
+
+    private static void setWeights(Pnml rete, IMarshallingContext imcon, String out) {
+
+        for (Arc arc:rete.getPnml().getArcs()){
+            boolean isSrc = arc.getSource().startsWith("rn:");
+            String reaction = (isSrc)?arc.getSource():arc.getTarget();
+            String component = (!isSrc)?arc.getSource():arc.getTarget();
+            int sharp = reaction.indexOf("#");
+            if (sharp!=-1) reaction = reaction.substring(0,sharp);
+
+            try {
+                Equation eq = Cache.getReaction(reaction);
+                Inscription weight = new Inscription();
+                /*if ((isSrc && sharp!=-1) || (!isSrc && sharp==-1)){
+                    weight.setValue(String.valueOf(eq.getSourceComponentValue(component)));
+                }
+                else {
+                    weight.setValue(String.valueOf(eq.getTargetComponentValue(component)));
+                }*/
+                weight.setValue(String.valueOf(eq.getComponentValue(component)));
+                arc.setInscription(weight);
+            } catch (Exception ex) {
+                System.out.println("eccezione");
+            }
+        }
+
+        try {
+            imcon.marshalDocument(rete,"UTF-8",null,new FileOutputStream(out));
+        } catch (JiBXException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (FileNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }

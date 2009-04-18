@@ -8,7 +8,8 @@
     <xsl:include href="transitions.xsl"/>
 
     <xsl:template match="/">
-        <pnml xmlns="http://www.pangea.net/type">
+        <!--<pnml xmlns="http://www.pangea.net/type">-->
+        <pnml>
             <net type="P/T net">
 
                 <!--SETUP OF ID ATTRIBUTE-->
