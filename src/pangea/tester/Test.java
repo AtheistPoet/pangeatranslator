@@ -11,7 +11,9 @@ import pangea.mem.Cache;
 import pangea.kegg.types.Equation;
 
 public class Test {
-
+    /**
+    * Main test
+    **/
     public static void main(String args[]){
         String xml, xsl, out, result;
 
