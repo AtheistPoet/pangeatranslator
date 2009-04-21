@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema-set xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <schema-set package="pangea.pnml.type" names="pnml.xsd"/>
+    <schema-set package="pangea.config.type" names="pangea_config.xsd"/>
+</schema-set>

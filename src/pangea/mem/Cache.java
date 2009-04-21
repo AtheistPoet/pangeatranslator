@@ -3,14 +3,12 @@ package pangea.mem;
 import pangea.xslt.XSLTransformer;
 import pangea.kegg.types.Equation;
 import pangea.kegg.Retriever;
+import pangea.logging.Log;
 
 import java.util.Hashtable;
-import java.util.Enumeration;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
-
-import org.xml.sax.SAXException;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -40,7 +38,7 @@ public class Cache {
         
         File[] files = dir.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return (name!=null && name.endsWith(".pangea.xsl"));
+                return (name!=null && name.endsWith(".xsl"));
             }
         });
 
@@ -51,9 +49,11 @@ public class Cache {
                 loaded++;
             }
             catch (TransformerConfigurationException tcex){
-                //todo aggiungere il log di mancata trasformazione del foglio di stile
+                Log.newWarning("Il foglio di stile " + file.getName() + " non è stato caricato in cache.");
             }
         }
+
+        Log.newMessage("Caricati " + loaded + " fogli di stile (xsl).");
 
         return loaded;
     }

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="BuildJarSettings">
+    <containerInfo>
+      <containerElement type="module" name="PangeaTranslator">
+        <attribute name="method" value="1" />
+        <attribute name="URI" value="/" />
+      </containerElement>
+    </containerInfo>
+    <setting name="jarUrl" value="file://$MODULE_DIR$/jar/PangeaTranslator.jar" />
+    <setting name="buildJar" value="true" />
+    <setting name="mainClass" value="pangea.tester.Test" />
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -13,6 +24,7 @@
     <orderEntry type="library" name="Saxon" level="project" />
     <orderEntry type="library" name="PNML Types" level="project" />
     <orderEntry type="library" name="Kegg" level="project" />
+    <orderEntry type="library" name="Pangea Config Types" level="project" />
   </component>
 </module>
 

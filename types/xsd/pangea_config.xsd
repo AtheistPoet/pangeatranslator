@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:simpleType name="yesno">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="yes"/>
+			<xs:enumeration value="no"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="pre-post"/>
+			<xs:enumeration value="pre"/>
+			<xs:enumeration value="post"/>
+			<!-- compare come opzione nel menu plugins della gui -->
+			<xs:enumeration value="menu"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="prepost">
+		<xs:sequence>
+			<xs:element name="package" type="xs:string"/>
+			<xs:element name="class" type="xs:string"/>
+			<xs:element ref="parameter" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="namevalue">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="logpath">
+		<xs:sequence>
+			<xs:element name="path" type="xs:string"/>
+		</xs:sequence>
+        <xs:attribute name="active" type="yesno" use="required"/>
+	</xs:complexType>
+    <xs:element name="error" type="logpath"/>
+    <xs:element name="warning" type="logpath"/>
+    <xs:element name="message" type="logpath"/>
+	<xs:element name="pre" type="prepost"/>
+	<xs:element name="post" type="prepost"/>
+	<xs:element name="pangea-config">
+		<xs:complexType>
+			<xs:sequence>
+                <xs:element ref="log" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="plugin" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="log">
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element ref="error" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="warning" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="message" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="active" type="yesno" use="required"/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="plugin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pre" minOccurs="0"/>
+				<xs:element ref="post" minOccurs="0"/>
+				<xs:element name="package" type="xs:string" minOccurs="0"/>
+				<xs:element name="class" type="xs:string" minOccurs="0"/>
+				<xs:element ref="parameter" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="type" type="type" use="required"/>
+			<xs:attribute name="option" type="xs:string" use="required"/>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="active" type="yesno" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="parameter" type="namevalue"/>
+</xs:schema>
