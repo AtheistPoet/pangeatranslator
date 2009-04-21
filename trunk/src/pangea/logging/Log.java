@@ -7,10 +7,6 @@ import java.io.FileWriter;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
-/**
- * Author: Francesco De Nes
- * Date: 16-feb-2009
- */
 public class Log {
     //Livelli di pangea.log nel file globale
     public static final int ERROR_LEVEL = 2;
@@ -43,11 +39,16 @@ public class Log {
     public static void setupLog(String errorsPath, String warningPath, String globalPath, JTextArea errorArea, JTextArea warningArea, JTextArea messageArea, boolean abortOnError, boolean append)
         throws Exception {
         try{
-            errors = new File(errorsPath);
-            warnings = new File(warningPath);
-            global = new File(globalPath);
+            errors = errorsPath==null?null:new File(errorsPath);
+            warnings = warningPath==null?null:new File(warningPath);
+            global = globalPath==null?null:new File(globalPath);
 
-            if((errors.isDirectory() || (!errors.exists() && !errors.createNewFile()) || !errors.canWrite()) || (warnings.isDirectory() || (!warnings.exists() && !warnings.createNewFile()) || !warnings.canWrite()) || (global.isDirectory() || (!global.exists() && !global.createNewFile()) || !global.canWrite())){
+            if (errors==null && warnings==null && global==null) {
+                System.out.println("Log non attivo.");
+            }
+            if( (errors!=null && (errors.isDirectory() || (!errors.exists() && !errors.createNewFile()) || !errors.canWrite()))
+                    || (warnings!=null && (warnings.isDirectory() || (!warnings.exists() && !warnings.createNewFile()) || !warnings.canWrite()))
+                    || (global!=null && (global.isDirectory() || (!global.exists() && !global.createNewFile()) || !global.canWrite()))){
                 errors = null;
                 warnings = null;
                 global = null;
@@ -58,13 +59,15 @@ public class Log {
 
                 global_level = MESSAGE_LEVEL;
 
-                e_writer = new FileWriter(errors,append);
-                w_writer = new FileWriter(warnings,append);
-                g_writer = new FileWriter(global,append);
+                if (errors!=null) e_writer = new FileWriter(errors,append);
+                if (warnings!=null) w_writer = new FileWriter(warnings,append);
+                if (global!=null) g_writer = new FileWriter(global,append);
 
                 e_area = errorArea;
                 w_area = warningArea;
                 g_area = messageArea;
+
+                newMessage("Log is running.");
             }
         }
         catch(Exception ex){
@@ -99,36 +102,51 @@ public class Log {
     }
 
 
-    public static void newError(String error) throws IOException{
-        if (runLog){
-            error = format(error);
-            e_writer.write(error);
-            if (e_area!=null) e_area.append(error);
-            if (global_level>=ERROR_LEVEL){
-                g_writer.write(error);
-                if (g_area!=null) g_area.append(error);
+    public static void newError(String error){
+        if (runLog && errors!=null){
+            try{
+                error = format(error);
+                e_writer.write(error);
+                if (e_area!=null) e_area.append(error);
+                if (global_level>=ERROR_LEVEL){
+                    g_writer.write(error);
+                    if (g_area!=null) g_area.append(error);
+                }
+            }
+            catch (IOException ioex){
+                System.out.println("Errore nella scrittura del log.");
             }
         }
 
     }
 
-    public static void newWarning(String warning) throws IOException{
-        if (runLog){
-            warning = format(warning);
-            w_writer.write(warning);
-            if (w_area!=null) w_area.append(warning);
-            if (global_level>=WARNING_LEVEL){
-                g_writer.write(warning);
-                if (g_area!=null) g_area.append(warning);
+    public static void newWarning(String warning){
+        if (runLog && warnings!=null){
+            try{
+                warning = format(warning);
+                w_writer.write(warning);
+                if (w_area!=null) w_area.append(warning);
+                if (global_level>=WARNING_LEVEL){
+                    g_writer.write(warning);
+                    if (g_area!=null) g_area.append(warning);
+                }
+            }
+            catch (IOException ioex){
+                System.out.println("Errore nella scrittura del log.");
             }
         }
     }
 
-    public static void newMessage(String message) throws IOException{
-        if (runLog){
-            message = format(message);
-            g_writer.write(message);
-            if (g_area!=null) g_area.append(message);
+    public static void newMessage(String message){
+        if (runLog && global!=null){
+            try{
+                message = format(message);
+                g_writer.write(message);
+                if (g_area!=null) g_area.append(message);
+            }
+            catch (IOException ioex){
+                System.out.println("Errore nella scrittura del log.");
+            }
         }
     }
 

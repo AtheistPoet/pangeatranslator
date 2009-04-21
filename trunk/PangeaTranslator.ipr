@@ -286,12 +286,11 @@
     <library name="PNML Types">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/lib/jibx-run.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/pnml_types.jar!/" />
         <root url="jar://$PROJECT_DIR$/lib/xpp3.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/other_types.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/types/java" />
         <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/jibx/build/src" />
       </SOURCES>
     </library>

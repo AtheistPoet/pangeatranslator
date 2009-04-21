@@ -2,30 +2,81 @@ package pangea.tester;
 
 import org.jibx.runtime.*;
 
-import net.pangea.type.*;
+import pangea.pnml.type.*;
+import pangea.config.type.*;
+import pangea.config.Loader;
 
 import java.io.*;
 
 import pangea.xslt.XSLTransformer;
 import pangea.mem.Cache;
 import pangea.kegg.types.Equation;
+import pangea.logging.Log;
+
+/*
+todo implementazione del caricamento dei plugin e dell'avvio in base alle opzioni della linea di comando
+todo modificare Cache in modo che sia consistente (caricamento dei valori dalle giuste classi e non accentramento in Cache)
+todo vedere come gestire il graph-drawing
+todo implementare l'interfaccia grafica
+*/
 
 public class Test {
+
+    private static Loader loader;
+
+    public static Loader getLoader() {
+        return loader;
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            //caricamento dei parametri di configurazione
+            loader = new Loader();
+
+            //caricamento del log
+            try{
+                Log.setupFileLog(Loader.getLogPath(Loader.ERRLOG),Loader.getLogPath(Loader.WARLOG),Loader.getLogPath(Loader.MESLOG),false);
+            }
+            catch(Exception ex){
+                //log disabled
+            }
+
+
+
+
+            
+            analisi();
+
+
+
+
+
+        } catch (JiBXException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            Log.close();
+        }
+
+    }
+
     /**
-    * Main test
-    **/
-    public static void main(String args[]){
+     * metodo temporaneo per la verifica della trasformazione
+     */
+    public static void analisi(){
         String xml, xsl, out, result;
 
-        xml = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\20090409\\ko00010.xml";
+        xml = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\20090409\\ko00472.xml";
         xsl = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\src\\pangea\\xsl\\net.xsl";
-        out = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\tega.xml";
-        result = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml.xml";
+        out = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_temp.xml";
+        result = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml00472.xml";
 
         try{
             Cache.loadAllXSL("C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\src\\pangea\\xsl");
         } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
 
         XSLTransformer.transform(xml,xsl,out);
@@ -64,12 +115,12 @@ public class Test {
             //mcon.marshalDocument(p,"UTF-8",null,new FileOutputStream(""));
 
         } catch (JiBXException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         } catch (FileNotFoundException e) {
             System.out.println("eccezione nel file xml");
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
     }
 
@@ -102,9 +153,36 @@ public class Test {
         try {
             imcon.marshalDocument(rete,"UTF-8",null,new FileOutputStream(out));
         } catch (JiBXException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
+        }
+    }
+
+    public static void config() {
+        String xml = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\config.xml";
+
+        IBindingFactory bfact;
+        try {
+            bfact = BindingDirectory.getFactory(PangeaConfig.class);
+            IUnmarshallingContext umcon = bfact.createUnmarshallingContext();
+
+            PangeaConfig pconf = (PangeaConfig) umcon.unmarshalDocument(new FileInputStream(xml),null);
+
+            for (Plugin p:pconf.getPlugins()){
+                System.out.println(
+                        "name:\t" + p.getName() +
+                        "\noption:\t" + p.getOption() +
+                        "\ntype:\t" + p.getType() +
+                        "\nactive:\t" + p.getActive() +
+                        "\npackage:\t" + p.getPackage() +
+                        "\nclass:\t" + p.get_Class()
+                );
+            }
+        } catch (JiBXException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            System.out.println("file di configurazione non trovato");
         }
     }
 
@@ -122,7 +200,7 @@ public class Test {
             Log.newMessage("messaaaaggggiooooo");
         }
         catch(Exception ex){
-            System.out.println("\nmerda\n");
+            System.out.println("\nahi ahi\n");
             ex.printStackTrace();
         }
         finally {

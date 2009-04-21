@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="pangeatranslator.types" default="pnml types">
+<project name="pangeatranslator.types" default="generate types">
 
 
     <property file="types.properties"/>
 
     <property name="types.basedir" value="${basedir}"/>
     <property name="types.xsddir" value="${basedir}/xsd"/>
+    <property name="types.prefdir" value="${basedir}/prefs"/>
+    <property name="types.javadir" value="${basedir}/java"/>
 
 
     <path id="classpath">
@@ -21,9 +23,9 @@
 
         <java classname="org.jibx.schema.codegen.CodeGen" fork="yes" classpathref="classpath" failonerror="true" dir="xsd">
             <arg value="-c"/>
-            <arg value="${types.basedir}/prefs.xml"/>
-            <arg value="-t"/>
-            <arg value="${types.basedir}/java"/>
+            <arg value="${types.prefdir}/${prefs.file}"/>
+            <arg value="-t"/><!-- target -->
+            <arg value="${types.javadir}"/>
             <arg value="${xsd.file}"/>
         </java>
 
@@ -48,22 +50,36 @@
 
 
 
-    <!-- TARGET FOR PNML TYPES -->
-    <target name="pnml types">
+    <!-- TARGET FOR ALL TYPES -->
+    <target name="generate types">
         <antcall target="type generator">
-            <param name="xsd.file" value="pnml.xsd"/>
+            <param name="xsd.file" value="*.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
         </antcall>
 
         <antcall target="type binder">
-            <param name="jar.file" value="pnml_types.jar"/>
+            <param name="jar.file" value="other_types.jar"/>
         </antcall>
+
+        <antcall target="fake types"/>
 
     </target>
 
-    <target name="pnml binder">
-        <antcall target="type binder">
-            <param name="jar.file" value="pnml_types.jar"/>
+
+
+    <!-- TARGET FOR FAKE TYPES -->
+    <target name="fake types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="fake/pnml_fake.xsd"/>
+            <param name="prefs.file" value="prefs_fake.xml"/>
         </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="fake_types.jar"/>
+        </antcall>
+
+        <delete file="../lib/fake_types.jar"/>
+
     </target>
 
 </project>

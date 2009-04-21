@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pangea-config>
+	<!--log active="yes">
+		<error active="yes">
+			<path>123z</path>
+		</error>
+		<warning active="yes">
+			<path>123z</path>
+		</warning>
+		<runtime active="yes">
+			<path>123z</path>
+		</runtime>
+	</log-->
+	<plugin name="nome plugin" option="opzione" type="pre" active="yes">
+		<pre>
+			<package>packagePre</package>
+			<class>classePre</class>
+			<parameter>
+				<name>nome parametro</name>
+				<value>valore parametro</value>
+			</parameter>
+		</pre>
+		<post>
+			<package>packagePost</package>
+			<class>classePost</class>
+			<parameter>
+				<name>nome parametro</name>
+				<value>valore parametro</value>
+			</parameter>
+		</post>
+		<package>package</package>
+		<class>Classe</class>
+		<parameter>
+			<name>nome parametro</name>
+			<value>valore parametro</value>
+		</parameter>
+	</plugin>
+</pangea-config>
