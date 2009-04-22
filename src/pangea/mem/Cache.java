@@ -77,12 +77,17 @@ public class Cache {
     }
 
     /**
-     * Prints out the cached Equations.
+     * Prints out the cached Equations and returns the formatted string containing them.
+     * @param stdout true if the result must be printed to the stdout, false otherwise.
+     * @return same string as stdouted.
      */
-    public static void soutEquations() {
+    public static String soutEquations(boolean stdout) {
+        String out = "";
         int i = 0;
         for (String k:reactions.keySet()){
-            System.out.println(++i + "\t: " + reactions.get(k).getEquationString());
+            out = out.concat(++i + "\t: " + reactions.get(k).getEquationString()).concat("\n");
         }
+        if(stdout) System.out.println(out);
+        return out;
     }
 }

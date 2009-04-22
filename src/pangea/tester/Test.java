@@ -87,10 +87,10 @@ public class Test {
 
             Pnml p = (Pnml) umcon.unmarshalDocument(new FileInputStream(out),null);
 
-            System.out.println("la rete " + p.getPnml().getId() + " è composta da:");
-            System.out.println(p.getPnml().getPlaces().size() + " posti");
-            System.out.println(p.getPnml().getTransitions().size() + " transizioni");
-            System.out.println(p.getPnml().getArcs().size() + " archi");
+            String message = "la rete " + p.getPnml().getId() + " è composta da:\n" +
+                    p.getPnml().getPlaces().size() + " posti\n" +
+                    p.getPnml().getTransitions().size() + " transizioni\n" +
+                    p.getPnml().getArcs().size() + " archi\n";
 
             int i = 0;
             for (Transition transition:p.getPnml().getTransitions()){
@@ -103,9 +103,9 @@ public class Test {
                 }
             }
 
-            if (i>0) System.out.println(i + " eccezioni");
+            if (i>0) Log.newError(i + " equazioni non sono state recuperate.");
 
-            Cache.soutEquations();
+            Log.newMessage(Cache.soutEquations(false));
 
             setWeights(p, bfact.createMarshallingContext(), result);
 
