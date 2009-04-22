@@ -287,7 +287,7 @@
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/lib/jibx-run.jar!/" />
         <root url="jar://$PROJECT_DIR$/lib/xpp3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/lib/other_types.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/pnml_types.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
@@ -320,6 +320,13 @@
         <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/jaxrpc.jar!/" />
         <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xml-apis-2.6.2.jar!/" />
         <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/httpunit.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Pangea Config Types">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/pangea_config_types.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

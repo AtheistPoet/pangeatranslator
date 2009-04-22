@@ -61,8 +61,6 @@
             <param name="jar.file" value="other_types.jar"/>
         </antcall>
 
-        <antcall target="fake types"/>
-
     </target>
 
 
@@ -79,6 +77,31 @@
         </antcall>
 
         <delete file="../lib/fake_types.jar"/>
+
+    </target>
+
+
+    <target name="pnml types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="pnml.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="pnml_types.jar"/>
+        </antcall>
+
+    </target>
+
+    <target name="pangea config types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="pangea_config.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="pangea_config_types.jar"/>
+        </antcall>
 
     </target>
 
