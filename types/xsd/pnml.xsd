@@ -56,8 +56,8 @@
 	</xs:element>
 	<xs:element name="position">
 		<xs:complexType>
-			<xs:attribute name="y" type="xs:decimal"/>
-			<xs:attribute name="x" type="xs:decimal"/>
+            <xs:attribute name="x" type="xs:int"/>
+            <xs:attribute name="y" type="xs:int"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="pnml">

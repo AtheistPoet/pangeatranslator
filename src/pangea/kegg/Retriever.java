@@ -11,13 +11,6 @@ import keggapi.KEGGLocator;
 
 import javax.xml.rpc.ServiceException;
 
-/**
- * Created by IntelliJ IDEA.
- * User: fdenes
- * Date: Apr 15, 2009
- * Time: 1:22:10 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Retriever {
 
     public static String getFromKegg(String element) throws RemoteException, ServiceException {
