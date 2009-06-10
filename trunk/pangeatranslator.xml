@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="pangeatranslator" default="all">
+  
+  
+  <property file="pangeatranslator.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.sbas/**"/>
+    <exclude name="**/.IJI.*/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6" value="${jdk.home.1.6}/bin"/>
+  <path id="jdk.classpath.1.6">
+    <fileset dir="${jdk.home.1.6}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.jgraph.classpath">
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/jars/l2fprod-common-all.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/lib/jgraphlayout-dev.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/lib/jgraphlayout.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph/lib/jgraph.jar"/>
+  </path>
+  
+  <path id="library.kegg.classpath">
+    <pathelement location="${basedir}/lib/keggapi.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/JimiProClasses.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/activation.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/axis-ant.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/axis.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/bsf.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/castor-0.9.5.2.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-codec-1.2.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-discovery-0.2.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-httpclient-3.0-rc2.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-logging-1.0.4.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-net-1.0.0-dev.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xercesImpl-2.6.2.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xml-apis-2.6.2.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/httpunit.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/ibmjsse.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/javax.jms.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/jaxrpc.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/junit-3.8.1.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/log4j-1.2.8.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/mailapi_1_3_1.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/saaj.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/servlet.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/wsdl4j-1.5.1.jar"/>
+  </path>
+  
+  <path id="library.pangea_config_types.classpath">
+    <pathelement location="${basedir}/lib/pangea_config_types.jar"/>
+  </path>
+  
+  <path id="library.pnml_types.classpath">
+    <pathelement location="${basedir}/lib/jibx-run.jar"/>
+    <pathelement location="${basedir}/lib/pnml_types.jar"/>
+    <pathelement location="${basedir}/lib/xpp3.jar"/>
+  </path>
+  
+  <path id="library.saxon.classpath">
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-dom.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-dom4j.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-jdom.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-s9api.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-sql.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xom.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xpath.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xqj.jar"/>
+    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module PangeaTranslator -->
+  
+  <dirname property="module.pangeatranslator.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.pangeatranslator" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.pangeatranslator" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.pangeatranslator" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.pangeatranslator" value="${compiler.args}"/>
+  
+  <property name="pangeatranslator.output.dir" value="${module.pangeatranslator.basedir}/out/production/PangeaTranslator"/>
+  <property name="pangeatranslator.testoutput.dir" value="${module.pangeatranslator.basedir}/out/test/PangeaTranslator"/>
+  
+  <path id="pangeatranslator.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="pangeatranslator.module.classpath">
+    <path refid="${module.jdk.classpath.pangeatranslator}"/>
+    <path refid="library.saxon.classpath"/>
+    <path refid="library.pnml_types.classpath"/>
+    <path refid="library.kegg.classpath"/>
+    <path refid="library.pangea_config_types.classpath"/>
+    <path refid="library.jgraph.classpath"/>
+  </path>
+  
+  <path id="pangeatranslator.runtime.module.classpath">
+    <pathelement location="${pangeatranslator.output.dir}"/>
+    <pathelement location="${pangeatranslator.testoutput.dir}"/>
+    <path refid="library.saxon.classpath"/>
+    <path refid="library.pnml_types.classpath"/>
+    <path refid="library.kegg.classpath"/>
+    <path refid="library.pangea_config_types.classpath"/>
+    <path refid="library.jgraph.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.pangeatranslator">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.pangeatranslator">
+    <patternset refid="excluded.from.module.pangeatranslator"/>
+  </patternset>
+  
+  <path id="pangeatranslator.module.sourcepath">
+    <dirset dir="${module.pangeatranslator.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.pangeatranslator" depends="compile.module.pangeatranslator.production,compile.module.pangeatranslator.tests" description="Compile module PangeaTranslator"/>
+  
+  <target name="compile.module.pangeatranslator.production" description="Compile module PangeaTranslator; production classes">
+    <mkdir dir="${pangeatranslator.output.dir}"/>
+    <javac destdir="${pangeatranslator.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.pangeatranslator}/javac">
+      <compilerarg line="${compiler.args.pangeatranslator}"/>
+      <bootclasspath refid="pangeatranslator.module.bootclasspath"/>
+      <classpath refid="pangeatranslator.module.classpath"/>
+      <src refid="pangeatranslator.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.pangeatranslator"/>
+    </javac>
+    
+    <copy todir="${pangeatranslator.output.dir}">
+      <fileset dir="${module.pangeatranslator.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.pangeatranslator.tests" depends="compile.module.pangeatranslator.production" description="compile module PangeaTranslator; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.pangeatranslator" description="cleanup module">
+    <delete dir="${pangeatranslator.output.dir}"/>
+    <delete dir="${pangeatranslator.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.pangeatranslator" description="cleanup all"/>
+  
+  <target name="all" depends="init, clean, compile.module.pangeatranslator" description="build all"/>
+</project>

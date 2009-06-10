@@ -28,6 +28,12 @@
         <!--<transition xmlns="http://www.pangea.net/type">-->
         <transition>
             <xsl:attribute name="id"><xsl:value-of select="$name"/></xsl:attribute>
+            <!--<graphics>
+                <position>
+                    <xsl:attribute name="x"><xsl:value-of select="graphics/@x"/></xsl:attribute>
+                    <xsl:attribute name="y"><xsl:value-of select="graphics/@y"/></xsl:attribute>
+                </position>
+            </graphics>-->
 			<name>
 				<value><xsl:value-of select="$name"/></value>
 			</name>

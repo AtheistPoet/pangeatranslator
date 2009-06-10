@@ -26,6 +26,8 @@ public class Loader {
     public static final int WARLOG = 1;
     public static final int MESLOG = 2;
 
+    private static String defaultPlugin;
+
 
     public Loader() throws JiBXException, FileNotFoundException {
         reload();
@@ -57,8 +59,7 @@ public class Loader {
     }
 
     public static Plugin getPlugin(String option){
-        Plugin p = plugins.get(option);
-        return p==null?p:p;
+        return plugins.get(option);
     }
 
     public static String[] getOptionsList() {
@@ -73,17 +74,23 @@ public class Loader {
         return logFiles[type];
     }
 
+    public static String getDefaultPluginOption() {
+        return defaultPlugin;
+    }
+
 
     //----------------------------------------------------//
     //                 PRIVATE METHODS                    //
     //----------------------------------------------------//
 
     private Hashtable<String, Plugin> setPlugins(List<pangea.config.type.Plugin> plugins) {
+        defaultPlugin = null;
         if (plugins!=null) {
             Hashtable<String, Plugin> res = new Hashtable<String, Plugin>();
             for (pangea.config.type.Plugin plugin:plugins){
                 if (isActive(plugin.getActive().toString()))
                 res.put(plugin.getOption(),new Plugin(plugin));
+                if (defaultPlugin==null) defaultPlugin = plugin.getOption();
             }
             return res;
         }

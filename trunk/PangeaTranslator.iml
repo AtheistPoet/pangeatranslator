@@ -6,10 +6,30 @@
         <attribute name="method" value="1" />
         <attribute name="URI" value="/" />
       </containerElement>
+      <containerElement type="library" name="JGraph" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
+      <containerElement type="library" name="Kegg" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
+      <containerElement type="library" name="Pangea Config Types" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
+      <containerElement type="library" name="PNML Types" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
+      <containerElement type="library" name="Saxon" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
     </containerInfo>
     <setting name="jarUrl" value="file://$MODULE_DIR$/jar/PangeaTranslator.jar" />
     <setting name="buildJar" value="true" />
-    <setting name="mainClass" value="pangea.tester.Test" />
+    <setting name="mainClass" value="pangea.Startup" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -24,6 +44,7 @@
     <orderEntry type="library" name="PNML Types" level="project" />
     <orderEntry type="library" name="Kegg" level="project" />
     <orderEntry type="library" name="Pangea Config Types" level="project" />
+    <orderEntry type="library" name="JGraph" level="project" />
   </component>
 </module>
 

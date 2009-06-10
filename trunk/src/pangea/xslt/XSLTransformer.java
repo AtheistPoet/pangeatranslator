@@ -24,20 +24,20 @@ public class XSLTransformer {
 
     public static String transform(String xml, String xsl, String out){
 
+        StreamResult res=null;
         try{
-            StreamResult res;
             if (out==null){
                 res = new StreamResult(System.out);
             }
             else {
                 res = new StreamResult(new File(out));
             }
-            Cache.getXSL(xsl).transform(new StreamSource(new File(xml)), res);
+            parseXSL(xsl).transform(new StreamSource(new File(xml)), res);
         }
         catch(Exception ex){
             ex.printStackTrace();
         }
-        return null;
+        return res==null?null:res.toString();
     }
 
 }

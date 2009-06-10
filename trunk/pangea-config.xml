@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pangea-config>
-	<log active="yes">
+	<log active="no">
 		<error active="yes">
 			<path>error.log</path>
 		</error>
@@ -11,28 +11,40 @@
 			<path>log.log</path>
 		</message>
 	</log>
-	<plugin name="nome plugin 2" option="opzione" type="pre" active="yes">
+	<plugin name="KGML to PNML" option="kgml2pnml" type="post" active="yes">
 		<pre>
-			<package>packagePre</package>
-			<class>classePre</class>
-			<parameter>
+			<package>pangea.kgml2pnml</package>
+			<class>Kgml2Pnml</class>
+			<!--<parameter>
 				<name>nome parametro</name>
 				<value>valore parametro</value>
-			</parameter>
+			</parameter>-->
 		</pre>
 		<post>
-			<package>packagePost</package>
-			<class>classePost</class>
-			<parameter>
+			<package>pangea.kgml2pnml</package>
+			<class>Kgml2Pnml</class>
+            <!--<parameter>
 				<name>nome parametro</name>
 				<value>valore parametro</value>
-			</parameter>
+			</parameter>-->
 		</post>
-		<package>package</package>
-		<class>Classe</class>
+		<!--<package>pangea.kgml2pnml</package>
+		<class>Kgml2Pnml</class>-->
 		<parameter>
-			<name>nome parametro</name>
-			<value>valore parametro</value>
+			<name>xsl</name>
+			<value>C:\Users\Francesco De Nes\Progetti\Java\PangeaTranslator\src\pangea\xsl\net.xsl</value>
+		</parameter>
+	</plugin>
+
+
+    <plugin name="KGML to PNML 2" option="kgml2pnml2" type="post" active="yes">
+		<post>
+			<package>pangea.kgml2pnml</package>
+			<class>Kgml2Pnml</class>
+		</post>
+		<parameter>
+			<name>xsl</name>
+			<value>C:\Users\Francesco De Nes\Progetti\Java\PangeaTranslator\src\pangea\xsl\net.xsl</value>
 		</parameter>
 	</plugin>
 </pangea-config>

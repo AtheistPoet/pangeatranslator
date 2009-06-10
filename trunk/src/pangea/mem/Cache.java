@@ -20,16 +20,22 @@ public class Cache {
 
 
     public static Transformer getXSL (String xslPath) throws TransformerConfigurationException {
-        Transformer xsl = xsls.get(xslPath);
+        //modificato per il problema sotto descritto relativo all'uri
+        /*Transformer xsl = xsls.get(xslPath);
         if (xsl==null){
             xsl = XSLTransformer.parseXSL(xslPath);
             xsls.put(xslPath,xsl);
         }
-        return xsl;
+        return xsl;*/
+        return XSLTransformer.parseXSL(xslPath);
     }
 
 
 
+    /*
+    questo metodo non può funzionare causa la gestione degli uri di saxon: non si può riutilizzare come output di una
+    successiva computazione lo stesso uri che è già stato letto
+     */
     public static int loadAllXSL (String xslDir) throws FileNotFoundException {
         if (xslDir==null) throw new FileNotFoundException();
 
