@@ -71,6 +71,14 @@ public class Equation {
         return els;
     }
 
+    public EqElement[] getSourceElementsArray() {
+        return fhalf;
+    }
+
+    public EqElement[] getTargetElementsArray() {
+        return shalf;
+    }
+
     public String getEquationString() {
         String res = id.concat("\t ->\t");
         for (int i = 0; i<fhalf.length; i++){

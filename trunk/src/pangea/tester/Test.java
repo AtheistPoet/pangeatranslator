@@ -14,6 +14,7 @@ import pangea.kegg.types.Equation;
 import pangea.logging.Log;
 import pangea.graphdrawing.Draw;
 import pangea.Actions;
+import pangea.kgml2pnml.Kgml2Pnml;
 
 /*
 todo implementazione del caricamento dei plugin e dell'avvio in base alle opzioni della linea di comando
@@ -30,6 +31,14 @@ public class Test {
     }
 
     public static void main(String[] args) {
+        new Kgml2Pnml().pre(null,"C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\copia_dme00010.xml","");
+    }
+
+    public static void mainss(String[] args) {
+        analisi();
+    }
+
+    public static void mains(String[] args) {
 
         try {
             //caricamento dei parametri di configurazione
@@ -83,29 +92,17 @@ public class Test {
     public static void analisi(){
         String xml[], xsl, out[], result[];
 
-        xml = new String[5];
-        result = new String[5];
-        out = new String[5];
+        xml = new String[1];
+        result = new String[1];
+        out = new String[1];
 
-        xml[0] = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\dme00010.xml";
-        xml[1] = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\ecx00010.xml";
-        xml[2] = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\mja00010.xml";
-        xml[3] = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\sce00010.xml";
-        xml[4] = "C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\vfi00010.xml";
+        xml[0] = "C:\\Users\\Francesco De Nes\\Desktop\\prova.xml";
 
         xsl = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\src\\pangea\\xsl\\net.xsl";
 
-        out[0] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_temp1.xml";
-        out[1] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_temp2.xml";
-        out[2] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_temp3.xml";
-        out[3] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_temp4.xml";
-        out[4] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_temp5.xml";
+        out[0] = "C:\\Users\\Francesco De Nes\\Desktop\\prova.xml";
 
-        result[0] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_dme00010.xml";
-        result[1] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_ecx00010.xml";
-        result[2] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_mja00010.xml";
-        result[3] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_sce00010.xml";
-        result[4] = "C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\xml\\pnml_vfi00010.xml";
+        result[0] = "C:\\Users\\Francesco De Nes\\Desktop\\prova_out.xml";
 
         /*try{
             Cache.loadAllXSL("C:\\Users\\Francesco De Nes\\Progetti\\Java\\PangeaTranslator\\src\\pangea\\xsl");
@@ -114,7 +111,7 @@ public class Test {
         }*/
 
         for (int k = 0; k<1; k++) {
-            XSLTransformer.transform(xml[k],xsl,out[0]);
+//            XSLTransformer.transform(xml[k],xsl,out[0]);
             FileInputStream fis=null;
 
             try{
@@ -130,7 +127,7 @@ public class Test {
                         p.getPnml().getArcs().size() + " archi\n";
                 Log.newMessage(message);
 
-                int i = 0;
+                /*int i = 0;
                 for (Transition transition:p.getPnml().getTransitions()){
                     if (!transition.getId().endsWith("#rev")){
                         try{
@@ -143,7 +140,7 @@ public class Test {
 
                 if (i>0) Log.newError(i + " equazioni non sono state recuperate.");
 
-                Log.newMessage("\n".concat(Cache.soutEquations(false)));
+                Log.newMessage("\n".concat(Cache.soutEquations(false)));*/
 
                 try {
                     Draw.draw(p,false);
@@ -151,7 +148,15 @@ public class Test {
                     e.printStackTrace();
                 }
 
-                setWeights(p, bfact.createMarshallingContext(), result[k]);
+                try {
+                    bfact.createMarshallingContext().marshalDocument(p,"UTF-8",null,new FileOutputStream(result[0]));
+                } catch (JiBXException e) {
+                    e.printStackTrace();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+//                setWeights(p, bfact.createMarshallingContext(), result[k]);
 
 
 

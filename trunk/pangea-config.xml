@@ -11,7 +11,7 @@
 			<path>log.log</path>
 		</message>
 	</log>
-	<plugin name="KGML to PNML" option="kgml2pnml" type="post" active="yes">
+	<plugin name="KGML to PNML" option="kgml2pnml" type="pre-post" active="yes">
 		<pre>
 			<package>pangea.kgml2pnml</package>
 			<class>Kgml2Pnml</class>

@@ -17,6 +17,8 @@ public class Retriever {
         KEGGLocator locator = new KEGGLocator();
         KEGGPortType port = locator.getKEGGPort();
 
+        //todo dal port si possono recuperare tutti i dati...in pratica è il soap request!!!
+
         return port.bget(element);
     }
 

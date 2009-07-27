@@ -2,4 +2,5 @@
 <schema-set xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <schema-set package="pangea.pnml.type" names="pnml.xsd"/>
     <schema-set package="pangea.config.type" names="pangea_config.xsd"/>
+    <schema-set package="jp.genome.kegg.type" names="KGML061.xsd"/>
 </schema-set>

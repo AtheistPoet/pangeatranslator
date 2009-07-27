@@ -6,11 +6,13 @@ import pangea.pnml.type.Arc;
 import pangea.pnml.type.Inscription;
 import pangea.pnml.type.Transition;
 import pangea.kegg.types.Equation;
+import pangea.kegg.types.EqElement;
 import pangea.mem.Cache;
 import pangea.logging.Log;
 import pangea.graphdrawing.Draw;
 
 import java.util.Hashtable;
+import java.util.List;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
@@ -19,18 +21,139 @@ import java.io.IOException;
 import org.jibx.runtime.*;
 
 import javax.swing.*;
+import javax.xml.rpc.ServiceException;
+
+import jp.genome.kegg.type.*;
 
 /**
  * Author: Francesco De Nes
  */
 public class Kgml2Pnml implements Plugin {
 
-
     @Override
     public void pre(Hashtable params, String input, String output) {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+
+        try{
+            IBindingFactory bfact = BindingDirectory.getFactory(Pathway.class);
+            IUnmarshallingContext umcon = bfact.createUnmarshallingContext();
+            IMarshallingContext mcon = bfact.createMarshallingContext();
+
+            fis = new FileInputStream(input);
+
+            Pathway path = (Pathway) umcon.unmarshalDocument(fis,null);
+
+            Hashtable<String,Object> components = new Hashtable<String, Object>();
+
+            List<Reaction> reactions = path.getReactions();
+
+            /*
+            recupero lista componenti effettivamente utilizzati e aggiornamento reazioni nel KGML
+             */
+            for (Reaction reaction:reactions){
+                Equation eq = Cache.getReaction(reaction.getName());
+
+                EqElement[] fh = eq.getSourceElementsArray();
+                EqElement[] sh = eq.getTargetElementsArray();
+
+                boolean isfh = false;
+
+                for (EqElement e:fh){
+                    if (components.get(e.getCompoundElement())==null) components.put(e.getCompoundElement(),e.getCompoundElement());
+                    for (int i = 0;!isfh && i<reaction.getSubstrates().size(); i++){
+                        Substrate s = reaction.getSubstrates().get(i);
+                        isfh = e.getCompoundElement().equals(s.getName());
+                    }
+                }
+
+                for (EqElement e:sh){
+                    if (components.get(e.getCompoundElement())==null) components.put(e.getCompoundElement(),e.getCompoundElement());
+                }
+
+                if (!isfh) {
+                    EqElement[] teea = fh;
+                    fh = sh;
+                    sh = teea;
+                }
+
+
+                reaction.getSubstrates().clear();
+                for (EqElement e:fh){
+                    Substrate ss = new Substrate();
+                    ss.setName(e.getCompoundElement());
+                    reaction.getSubstrates().add(ss);
+                }
+                reaction.getProducts().clear();
+                for (EqElement e:sh){
+                    Product pr = new Product();
+                    pr.setName(e.getCompoundElement());
+                    reaction.getProducts().add(pr);
+                }
+
+            }
+
+            //memorizzazione composti utilizzati e riscrittura nel KGML
+            for (Entry e:path.getEntries()){
+                if (components.get(e.getName())!=null){
+                    components.put(e.getName(),e);
+                }
+            }
+
+            path.getEntries().clear();
+
+            for (Object e:components.values()){
+
+                if (e instanceof Entry){
+                    path.getEntries().add((Entry) e);
+                }
+                else {
+                    path.getEntries().add(buildEntry((String)e));
+                }
+            }
+
+
+            fis.close();
+
+            fos = new FileOutputStream(input);
+
+            mcon.marshalDocument(path,"UTF-8",null,fos);
+
+        } catch (JiBXException e) {
+            Log.newError("Marshalling error processing " + input);
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            Log.newError("Input file not found: " + input);
+            e.printStackTrace();
+        } catch (ServiceException e) {
+            Log.newError("Error accessing web service");
+            e.printStackTrace();
+        } catch (Exception e) {
+            Log.newError("Error preprocessing KGML file " + input!=null?input:"");
+            e.printStackTrace();
+        } finally {
+            try{
+                fis.close();
+            } catch (Exception e) {
+                //do nothing
+            }
+
+            try{
+                fos.close();
+            } catch (Exception e) {
+                //do nothing
+            }
+        }
+
     }
 
+
+
     @Override
+    /**
+     * input->kgml
+     * output->pnml
+     */
     public void post(Hashtable params, String input, String output) {
         FileInputStream fis=null;
 
@@ -62,6 +185,7 @@ public class Kgml2Pnml implements Plugin {
 
                 Log.newMessage("\n".concat(Cache.soutEquations(false)));
 
+
                 try {
                     JFrame frame = Draw.draw(p,true);
                     frame.setVisible(true);
@@ -72,17 +196,11 @@ public class Kgml2Pnml implements Plugin {
                 setWeights(p, bfact.createMarshallingContext(), output);
 
 
-
-
-                //IMarshallingContext mcon = bfact.createMarshallingContext();
-
-                //mcon.marshalDocument(p,"UTF-8",null,new FileOutputStream(""));
-
             } catch (JiBXException e) {
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
                 System.out.println("eccezione nel file xml");
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -104,6 +222,30 @@ public class Kgml2Pnml implements Plugin {
     //---------------------------------------------------------------------------------------------------------------//
     //----------------------------------------------- PRIVATE METHODS -----------------------------------------------//
     //---------------------------------------------------------------------------------------------------------------//
+
+    private Entry buildEntry(String s) {
+        Entry e = new Entry();
+        Graphics g = new Graphics();
+
+        g.setName(s);
+        g.setFgcolor("#000000");
+        g.setBgcolor("#BFFFBF");
+        g.setType(Graphics.Type.RECTANGLE);
+        g.setX("100");
+        g.setY("100");
+        g.setWidth("100");
+        g.setHeight("100");
+
+        e.setId("1");
+        e.setName(s);
+        e.setType(Entry.Type.COMPOUND);
+        e.setLink("");
+        e.setGraphics(g);
+
+        return e;
+    }
+
+
 
     private static void setWeights(Pnml rete, IMarshallingContext imcon, String out) {
 
