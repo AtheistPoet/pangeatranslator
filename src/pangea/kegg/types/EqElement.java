@@ -30,6 +30,10 @@ public class EqElement {
         return element;
     }
 
+    public String getCompoundElement() {
+        return "cpd:".concat(element);
+    }
+
 
     public static EqElement getElementFromString (String element) throws Exception{
         String[] splitted = element.trim().split(" ");

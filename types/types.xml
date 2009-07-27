@@ -105,4 +105,16 @@
 
     </target>
 
+    <target name="kgml types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="KGML061.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="kgml_types.jar"/>
+        </antcall>
+
+    </target>
+
 </project>
