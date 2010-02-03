@@ -45,6 +45,8 @@
 
         <jar destfile="../lib/${jar.file}" basedir="classes"/>
 
+        <jar  destfile="../lib/src/${src.file}" basedir="java"/>
+
     </target>
 
 
@@ -59,6 +61,7 @@
 
         <antcall target="type binder">
             <param name="jar.file" value="other_types.jar"/>
+            <param name="src.file" value="src_other_types.jar"/>
         </antcall>
 
     </target>
@@ -74,6 +77,7 @@
 
         <antcall target="type binder">
             <param name="jar.file" value="fake_types.jar"/>
+            <param name="src.file" value="src_fake_types.jar"/>
         </antcall>
 
         <delete file="../lib/fake_types.jar"/>
@@ -89,6 +93,7 @@
 
         <antcall target="type binder">
             <param name="jar.file" value="pnml_types.jar"/>
+            <param name="src.file" value="src_pnml_types.jar"/>
         </antcall>
 
     </target>
@@ -101,6 +106,7 @@
 
         <antcall target="type binder">
             <param name="jar.file" value="pangea_config_types.jar"/>
+            <param name="src.file" value="src_pangea_config_types.jar"/>
         </antcall>
 
     </target>
@@ -113,6 +119,46 @@
 
         <antcall target="type binder">
             <param name="jar.file" value="kgml_types.jar"/>
+            <param name="src.file" value="src_kgml_types.jar"/>
+        </antcall>
+
+    </target>
+
+    <target name="sbml types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="sbml.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="sbml_types.jar"/>
+            <param name="src.file" value="src_sbml_types.jar"/>
+        </antcall>
+
+    </target>
+
+    <target name="mathml types">
+        <antcall target="type generator">
+            <param name="xsd.file" value="mathml-xsd/mathml2.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>
+
+        <antcall target="type binder">
+            <param name="jar.file" value="mathml2_types.jar"/>
+            <param name="src.file" value="src_mathml2_types.jar"/>
+        </antcall>
+
+    </target>
+
+    <target name="timenet scpn types">
+        <!--<antcall target="type generator">
+            <param name="xsd.file" value="timenet/SCPN.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>-->
+
+        <antcall target="type binder">
+            <param name="jar.file" value="tnet_scpn.jar"/>
+            <param name="src.file" value="src_tnet_scpn.jar"/>
         </antcall>
 
     </target>

@@ -1,0 +1,30 @@
+BINDING.XML
+
+<binding xmlns:tns="http://pdv.cs.tu-berlin.de/TimeNET/schema/SCPN" name="binding" package="timenet">
+  <namespace uri="http://pdv.cs.tu-berlin.de/TimeNET/schema/SCPN" default="elements"/>
+  <namespace uri="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/> questo bisogna raggiungerlo per il namespace
+  <format type="timenet.common.type.Type" enum-value-method="toString"/>
+  <format type="timenet.scpn.type.QueueType" enum-value-method="toString"/>
+  <format type="timenet.scpn.type.ServerTypeType" enum-value-method="toString"/>
+  <format type="timenet.scpn.type.SpecTypeType" enum-value-method="toString"/>
+  <format type="timenet.scpn.type.BooleanType" enum-value-method="toString"/>
+  <format type="timenet.scpn.type.MeasureEvalType" enum-value-method="toString"/>
+  <mapping abstract="true" type-name="tns:NetType" class="timenet.common.type.NetType">
+    <value style="attribute" name="id" get-method="getId" set-method="setId"/>
+    <value style="attribute" name="netclass" get-method="getNetclass" set-method="setNetclass"/>
+    <value style="attribute" ns="http://www.w3.org/2001/XMLSchema-instance" name="schemaLocation" field="schemaLocation"/>  questa bisogna aggiungerla per la location
+  </mapping>
+  ...
+
+
+
+CLASSE DA MODIFICARE
+
+Nella classe java bisogna inserire un attributo
+
+private String schemaLocation;
+
+
+
+
+PER FARE TUTTO PRIMA BISOGNA GENERARE I TIPI, MODIFICARE I FILE NECESSARI E ALLA FINE FAR PARTIRE IL BINDING (QUINDI SPEZZARE IN 2 IL METODO AUTOMATICO DELL'ANT)

@@ -17,18 +17,13 @@
       <maximumHeapSize value="128" />
       <maximumStackSize value="32" />
       <properties />
-    </buildFile>
-    <buildFile url="file://$PROJECT_DIR$/pangeatranslator.xml">
-      <additionalClassPath />
-      <antReference projectDefault="true" />
-      <customJdkName value="" />
-      <maximumHeapSize value="128" />
-      <maximumStackSize value="32" />
-      <properties />
+      <executeOn event="beforeRun" target="all" />
+      <executeOn event="beforeRun" target="all" runConfigurationType="Application" runConfigurationName="GUI" />
+      <executeOn event="beforeRun" target="all" runConfigurationType="Application" runConfigurationName="Test" />
     </buildFile>
   </component>
   <component name="BuildJarProjectSettings">
-    <option name="BUILD_JARS_ON_MAKE" value="false" />
+    <option name="BUILD_JARS_ON_MAKE" value="true" />
   </component>
   <component name="CodeStyleSettingsManager">
     <option name="PER_PROJECT_SETTINGS" />
@@ -67,9 +62,7 @@
     <option name="ADDITIONAL_OPTIONS_STRING" value="" />
     <option name="MAXIMUM_HEAP_SIZE" value="128" />
   </component>
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/src/net/sf/saxon/TransformerFactoryImpl.java" charset="windows-1252" />
-  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="FacetAutodetectingManager">
     <autodetection-disabled>
       <facet-type id="JiBX">
@@ -254,7 +247,7 @@
   </component>
   <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectKey">
-    <option name="state" value="project://C:\Users\Francesco De Nes\Progetti\Java\PangeaTranslator\PangeaTranslator.ipr" />
+    <option name="state" value="https://pangeatranslator.googlecode.com/svn/trunk/PangeaTranslator.ipr" />
   </component>
   <component name="ProjectModuleManager">
     <modules>
@@ -289,21 +282,21 @@
   <component name="libraryTable">
     <library name="Saxon">
       <CLASSES>
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-jdom.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-dom.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xom.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-sql.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-dom4j.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xqj.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xpath.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-s9api.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-s9api.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-jdom.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-xpath.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-xom.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-dom4j.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-dom.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-sql.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/saxon/jar/saxon9-xqj.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/doc" />
+        <root url="file://D:/Projects/Java/librerie/saxon/doc" />
       </JAVADOC>
       <SOURCES>
-        <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/src" />
+        <root url="file://D:/Projects/Java/librerie/saxon/src" />
       </SOURCES>
     </library>
     <library name="PNML Types">
@@ -314,36 +307,36 @@
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/jibx/build/src" />
+        <root url="file://D:/Projects/Java/librerie/jibx/build/src" />
       </SOURCES>
     </library>
     <library name="Kegg">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/lib/keggapi.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/bsf.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-discovery-0.2.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/JimiProClasses.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-logging-1.0.4.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/javax.jms.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-httpclient-3.0-rc2.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/castor-0.9.5.2.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/saaj.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/wsdl4j-1.5.1.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/activation.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/servlet.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/ibmjsse.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xercesImpl-2.6.2.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-codec-1.2.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-net-1.0.0-dev.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/mailapi_1_3_1.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/log4j-1.2.8.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/axis-ant.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/junit-3.8.1.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/axis.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/jaxrpc.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xml-apis-2.6.2.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/httpunit.jar!/" />
         <root url="jar://$PROJECT_DIR$/lib/kgml_types.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/javax.jms.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/endorsed/xml-apis-2.6.2.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/ibmjsse.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/commons-net-1.0.0-dev.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/axis.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/activation.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/commons-httpclient-3.0-rc2.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/httpunit.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/jaxrpc.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/commons-logging-1.0.4.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/axis-ant.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/servlet.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/JimiProClasses.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/wsdl4j-1.5.1.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/bsf.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/mailapi_1_3_1.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/commons-codec-1.2.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/endorsed/xercesImpl-2.6.2.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/junit-3.8.1.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/saaj.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/log4j-1.2.8.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/castor-0.9.5.2.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/axis-1_4/lib/commons-discovery-0.2.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -357,17 +350,37 @@
     </library>
     <library name="JGraph">
       <CLASSES>
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph/lib/jgraph.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/lib/jgraphlayout-dev.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/jars/l2fprod-common-all.jar!/" />
-        <root url="jar://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/lib/jgraphlayout.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/jgraph-layout/lib/jgraphlayout.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/jgraph-layout/lib/jgraphlayout-dev.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/jgraph-layout/jars/l2fprod-common-all.jar!/" />
+        <root url="jar://D:/Projects/Java/librerie/jgraph/lib/jgraph.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph/doc" />
-        <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/doc" />
+        <root url="file://D:/Projects/Java/librerie/jgraph/doc" />
+        <root url="file://D:/Projects/Java/librerie/jgraph-layout/doc" />
       </JAVADOC>
       <SOURCES>
-        <root url="file://C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph/src" />
+        <root url="file://D:/Projects/Java/librerie/jgraph/src" />
+      </SOURCES>
+    </library>
+    <library name="log4j">
+      <CLASSES>
+        <root url="jar://D:/Projects/Java/librerie/apache-log4j-1.2.15/log4j-1.2.15.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="file://D:/Projects/Java/librerie/apache-log4j-1.2.15/src/main/javadoc" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="file://D:/Projects/Java/librerie/apache-log4j-1.2.15/src/main/java" />
+      </SOURCES>
+    </library>
+    <library name="TimeNET">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/tnet_scpn.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$PROJECT_DIR$/lib/src/src_tnet_scpn.jar!/" />
       </SOURCES>
     </library>
   </component>

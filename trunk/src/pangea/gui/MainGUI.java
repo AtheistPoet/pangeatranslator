@@ -9,13 +9,15 @@ import java.awt.*;
 import java.util.Hashtable;
 import java.util.Enumeration;
 
+import org.apache.log4j.Logger;
+
 /**
  * Author: Francesco De Nes
  * C: 2009
  */
 public class MainGUI extends JFrame {
 
-    private static Log log;
+    private static Logger logger = Logger.getLogger(MainGUI.class);
 
 
     private JTextField txtInput;
@@ -27,7 +29,7 @@ public class MainGUI extends JFrame {
 
     public MainGUI() throws Exception {
 
-        log = new Log(); 
+        logger.debug("Caricamento GUI.");
 
         pluginValue = new Hashtable<String, String>();
 

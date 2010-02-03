@@ -4,17 +4,37 @@ import pangea.config.Loader;
 import pangea.plugins.Plugin;
 import pangea.xslt.XSLTransformer;
 
+import java.io.File;
+import java.util.Hashtable;
+
 /**
  * Author: Francesco De Nes
  * C: 2009
  */
-public class Actions {
-
+public class Actions extends Thread{
     public static String run (String option, String input, String output) {
         //todo caricare il plugin
         //todo avviare la classe pre se necessario
         //todo avviare la trasformazione se necessario
         //todo avviare la classe post se necessario
+
+        String err = "";
+        try{
+            File finput = new File(input);
+            if (!finput.isFile()) err = err.concat("File di input non presente.\n");
+        }catch (Exception ex){
+            err = err.concat("File di input non presente.\n");
+        }
+
+        try{
+            File foutput = new File(output);
+            if (!foutput.createNewFile()) err = err.concat("File di output non presente.\n");
+        }catch (Exception ex){
+            err = err.concat("File di output non presente.\n");
+        }
+
+        if (!"".equals(err)) return err;
+
 
         pangea.config.utils.Plugin pluginConfig = Loader.getPlugin(option);
 
@@ -46,12 +66,13 @@ public class Actions {
             }
 
             //avvio delle operazioni
+            Hashtable<String,String> xslparams = null;
             if (hasPre) {
-                pre.pre(pluginConfig.getPre().getParameters(), input, output);
+                xslparams = pre.pre(pluginConfig.getPre().getParameters(), input, output);
             }
 
             if ((pre!=null && pre.transform()) || (post!=null && post.transform())){
-                XSLTransformer.transform(input,pluginConfig.getParameterValue("xsl"),output);
+                XSLTransformer.transform(input,pluginConfig.getParameterValue("xsl"), xslparams, output);
             }
 
             if (hasPost) {

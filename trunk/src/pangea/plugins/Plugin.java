@@ -8,7 +8,27 @@ import java.util.Hashtable;
  * Date: 26-may-2009
  */
 public interface Plugin {
-    public void pre(Hashtable params, String input, String output);
+
+    /**
+     * Operazioni da eseguire prima della trasformazione.
+     * @param params parametri d'ingresso
+     * @param input path del file xml d'ingresso
+     * @param output path del file di uscita
+     * @return Hashtable contenente i parametri da passare alla xsl al momento della trasformazione
+     */
+    public Hashtable<String,String> pre(Hashtable params, String input, String output);
+
+    /**
+     * Operazioni da eseguire dopo la trasformazione.
+     * @param params parametri d'ingresso
+     * @param input path del file xml d'ingresso
+     * @param output path del file di uscita
+     */
     public void post(Hashtable params, String input, String output);
+
+    /**
+     * Indica se bisogna effettuare la trasformazione.
+     * @return true se la trasformazione dev'essere eseguita, false altrimenti.
+     */
     public boolean transform();
 }

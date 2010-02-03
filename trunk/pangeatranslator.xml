@@ -42,6 +42,7 @@
     <include name="**/?*.dtd"/>
     <include name="**/?*.tld"/>
     <include name="**/?*.ftl"/>
+    <include name="**/?*.xsl"/>
   </patternset>
   
   <!-- JDK definitions -->
@@ -74,37 +75,42 @@
   <!-- Project Libraries -->
   
   <path id="library.jgraph.classpath">
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/jars/l2fprod-common-all.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/lib/jgraphlayout-dev.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph-layout/lib/jgraphlayout.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/jgraph/lib/jgraph.jar"/>
+    <pathelement location="${libraries.path}/jgraph-layout/jars/l2fprod-common-all.jar"/>
+    <pathelement location="${libraries.path}/jgraph-layout/lib/jgraphlayout-dev.jar"/>
+    <pathelement location="${libraries.path}/jgraph-layout/lib/jgraphlayout.jar"/>
+    <pathelement location="${libraries.path}/jgraph/lib/jgraph.jar"/>
+  </path>
+
+  <path id="library.timenet.classpath">
+    <pathelement location="${basedir}/lib/tnet_scpn.jar"/>
   </path>
   
   <path id="library.kegg.classpath">
     <pathelement location="${basedir}/lib/keggapi.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/JimiProClasses.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/activation.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/axis-ant.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/axis.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/bsf.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/castor-0.9.5.2.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-codec-1.2.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-discovery-0.2.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-httpclient-3.0-rc2.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-logging-1.0.4.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/commons-net-1.0.0-dev.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xercesImpl-2.6.2.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/endorsed/xml-apis-2.6.2.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/httpunit.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/ibmjsse.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/javax.jms.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/jaxrpc.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/junit-3.8.1.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/log4j-1.2.8.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/mailapi_1_3_1.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/saaj.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/servlet.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/axis-1_4/lib/wsdl4j-1.5.1.jar"/>
+    <pathelement location="${basedir}/lib/kgml_types.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/JimiProClasses.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/activation.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/axis-ant.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/axis.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/bsf.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/castor-0.9.5.2.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/commons-codec-1.2.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/commons-discovery-0.2.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/commons-httpclient-3.0-rc2.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/commons-logging-1.0.4.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/commons-net-1.0.0-dev.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/endorsed/xercesImpl-2.6.2.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/endorsed/xml-apis-2.6.2.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/httpunit.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/ibmjsse.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/javax.jms.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/jaxrpc.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/junit-3.8.1.jar"/>
+    <!--pathelement location="${libraries.path}/axis-1_4/lib/log4j-1.2.8.jar"/-->
+    <pathelement location="${libraries.path}/axis-1_4/lib/mailapi_1_3_1.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/saaj.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/servlet.jar"/>
+    <pathelement location="${libraries.path}/axis-1_4/lib/wsdl4j-1.5.1.jar"/>
   </path>
   
   <path id="library.pangea_config_types.classpath">
@@ -118,15 +124,19 @@
   </path>
   
   <path id="library.saxon.classpath">
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-dom.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-dom4j.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-jdom.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-s9api.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-sql.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xom.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xpath.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9-xqj.jar"/>
-    <pathelement location="C:/Users/Francesco De Nes/Progetti/Java/librerie/saxon/jar/saxon9.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-dom.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-dom4j.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-jdom.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-s9api.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-sql.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-xom.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-xpath.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9-xqj.jar"/>
+    <pathelement location="${libraries.path}/saxon/jar/saxon9.jar"/>
+  </path>
+
+  <path  id="library.log4j.classpath">
+    <pathelement location="${libraries.path}/apache-log4j-1.2.15/log4j-1.2.15.jar"/>
   </path>
   
   <!-- Modules -->
@@ -152,11 +162,13 @@
   
   <path id="pangeatranslator.module.classpath">
     <path refid="${module.jdk.classpath.pangeatranslator}"/>
+    <path refid="library.log4j.classpath"/>
     <path refid="library.saxon.classpath"/>
     <path refid="library.pnml_types.classpath"/>
     <path refid="library.kegg.classpath"/>
     <path refid="library.pangea_config_types.classpath"/>
     <path refid="library.jgraph.classpath"/>
+    <path refid="library.timenet.classpath"/>
   </path>
   
   <path id="pangeatranslator.runtime.module.classpath">
@@ -167,6 +179,8 @@
     <path refid="library.kegg.classpath"/>
     <path refid="library.pangea_config_types.classpath"/>
     <path refid="library.jgraph.classpath"/>
+    <path refid="library.log4j.classpath"/>
+    <path refid="library.timenet.classpath"/>
   </path>
   
   
