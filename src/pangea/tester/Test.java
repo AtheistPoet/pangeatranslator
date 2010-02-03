@@ -14,6 +14,7 @@ import pangea.kegg.types.Equation;
 import pangea.logging.Log;
 import pangea.graphdrawing.Draw;
 import pangea.Actions;
+import pangea.sbml2tnet.Sbml2Tnet;
 import pangea.kgml2pnml.Kgml2Pnml;
 
 /*
@@ -31,7 +32,14 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        new Kgml2Pnml().pre(null,"C:\\Users\\Francesco De Nes\\Università\\Specialistica\\Tesi\\Kegg\\organismi scelti\\copia_dme00010.xml","");
+        try{
+            loader = new Loader();
+            System.out.println(Actions.run("sbml2tnetscpn","C:\\Users\\Francesco\\Desktop\\glicolisi.xml","C:\\Users\\Francesco\\Desktop\\glicolisi.tnet.xml"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public static void mainss(String[] args) {
@@ -45,12 +53,12 @@ public class Test {
             loader = new Loader();
 
             //caricamento del log
-            try{
+            /*try{
                 Log.setupFileLog(Loader.getLogPath(Loader.ERRLOG),Loader.getLogPath(Loader.WARLOG),Loader.getLogPath(Loader.MESLOG),false);
             }
             catch(Exception ex){
                 //log disabled
-            }
+            }*/
 
             String[] olist = Loader.getOptionsList();
             if (olist==null || olist.length<1) {

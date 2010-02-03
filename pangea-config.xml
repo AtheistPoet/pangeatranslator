@@ -11,25 +11,45 @@
 			<path>log.log</path>
 		</message>
 	</log>
-	<plugin name="KGML to PNML" option="kgml2pnml" type="pre-post" active="yes">
+
+    <!--
+
+    <plugin name="nome visualizzato" option="identificatore" type="pre|post|pre-post" active="yes|no">
+		<pre>
+			<package>package</package>
+			<class>classe</class>
+			<parameter> 0..n
+				<name>nome parametro</name>
+				<value>valore parametro</value>
+			</parameter>
+		</pre>
+		<post>
+			<package>package</package>
+			<class>classe</class>
+            <parameter> 0..n
+				<name>nome parametro</name>
+				<value>valore parametro</value>
+			</parameter>
+		</post>
+		<parameter> 0..n (di cui uno xsl)
+			<name>xsl</name>
+			<value>path xsl</value>
+		</parameter>
+	</plugin>
+
+    -->
+
+
+	<plugin name="KGML to PNML (web)" option="kgml2pnml" type="pre-post" active="yes">
+        <!-- possibilità di gestire gli enzimi -->
 		<pre>
 			<package>pangea.kgml2pnml</package>
 			<class>Kgml2Pnml</class>
-			<!--<parameter>
-				<name>nome parametro</name>
-				<value>valore parametro</value>
-			</parameter>-->
 		</pre>
 		<post>
 			<package>pangea.kgml2pnml</package>
 			<class>Kgml2Pnml</class>
-            <!--<parameter>
-				<name>nome parametro</name>
-				<value>valore parametro</value>
-			</parameter>-->
 		</post>
-		<!--<package>pangea.kgml2pnml</package>
-		<class>Kgml2Pnml</class>-->
 		<parameter>
 			<name>xsl</name>
 			<value>C:\Users\Francesco De Nes\Progetti\Java\PangeaTranslator\src\pangea\xsl\net.xsl</value>
@@ -37,7 +57,7 @@
 	</plugin>
 
 
-    <plugin name="KGML to PNML 2" option="kgml2pnml2" type="post" active="yes">
+    <plugin name="KGML to PNML (almost just xml)" option="kgml2pnml2" type="post" active="yes">
 		<post>
 			<package>pangea.kgml2pnml</package>
 			<class>Kgml2Pnml</class>
@@ -45,6 +65,33 @@
 		<parameter>
 			<name>xsl</name>
 			<value>C:\Users\Francesco De Nes\Progetti\Java\PangeaTranslator\src\pangea\xsl\net.xsl</value>
+		</parameter>
+	</plugin>
+
+
+    <plugin name="SBML to TimeNET (SCPN)" option="sbml2tnetscpn" type="pre-post" active="yes">
+		<pre>
+			<package>pangea.sbml2tnet</package>
+			<class>Sbml2Tnet</class>
+		</pre>
+        <post>
+			<package>pangea.sbml2tnet</package>
+			<class>Sbml2Tnet</class>
+		</post>
+		<parameter>
+			<name>xsl</name>
+			<value>D:\Projects\Java\PangeaTranslator\src\pangea\xsl\sbml2tnetscpn.xsl</value>
+		</parameter>
+	</plugin>
+
+    <plugin name="SBML to TimeNET (eDSPN)" option="sbml2tnetedspn" type="pre" active="yes">
+		<pre>
+			<package>pangea.sbml2tnet</package>
+			<class>Sbml2Tnet</class>
+		</pre>
+		<parameter>
+			<name>xsl</name>
+			<value>C:\Users\Francesco De Nes\Progetti\Java\PangeaTranslator\src\pangea\xsl\sbml2tnetedspn.xsl</value>
 		</parameter>
 	</plugin>
 </pangea-config>

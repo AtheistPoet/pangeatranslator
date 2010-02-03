@@ -10,6 +10,7 @@ import pangea.kegg.types.EqElement;
 import pangea.mem.Cache;
 import pangea.logging.Log;
 import pangea.graphdrawing.Draw;
+import pangea.gui.MainGUI;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.jibx.runtime.*;
+import org.apache.log4j.Logger;
 
 import javax.swing.*;
 import javax.xml.rpc.ServiceException;
@@ -30,8 +32,10 @@ import jp.genome.kegg.type.*;
  */
 public class Kgml2Pnml implements Plugin {
 
+    private static Logger logger = Logger.getLogger(Kgml2Pnml.class);
+
     @Override
-    public void pre(Hashtable params, String input, String output) {
+    public Hashtable<String,String> pre(Hashtable params, String input, String output) {
         FileInputStream fis = null;
         FileOutputStream fos = null;
 
@@ -51,6 +55,7 @@ public class Kgml2Pnml implements Plugin {
             /*
             recupero lista componenti effettivamente utilizzati e aggiornamento reazioni nel KGML
              */
+            MainGUI.newMessage("recupero lista componenti effettivamente utilizzati e aggiornamento reazioni nel KGML");
             for (Reaction reaction:reactions){
                 Equation eq = Cache.getReaction(reaction.getName());
 
@@ -94,6 +99,7 @@ public class Kgml2Pnml implements Plugin {
             }
 
             //memorizzazione composti utilizzati e riscrittura nel KGML
+            MainGUI.newMessage("memorizzazione composti utilizzati e riscrittura nel KGML");
             for (Entry e:path.getEntries()){
                 if (components.get(e.getName())!=null){
                     components.put(e.getName(),e);
@@ -120,16 +126,16 @@ public class Kgml2Pnml implements Plugin {
             mcon.marshalDocument(path,"UTF-8",null,fos);
 
         } catch (JiBXException e) {
-            Log.newError("Marshalling error processing " + input);
+            logger.error("Marshalling error processing " + input);
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            Log.newError("Input file not found: " + input);
+            logger.error("Input file not found: " + input);
             e.printStackTrace();
         } catch (ServiceException e) {
-            Log.newError("Error accessing web service");
+            logger.error("Error accessing web service");
             e.printStackTrace();
         } catch (Exception e) {
-            Log.newError("Error preprocessing KGML file " + input!=null?input:"");
+            logger.error("Error preprocessing KGML file " + input!=null?input:"");
             e.printStackTrace();
         } finally {
             try{
@@ -144,6 +150,8 @@ public class Kgml2Pnml implements Plugin {
                 //do nothing
             }
         }
+
+        return null;
 
     }
 
@@ -168,7 +176,8 @@ public class Kgml2Pnml implements Plugin {
                         p.getPnml().getPlaces().size() + " posti\n" +
                         p.getPnml().getTransitions().size() + " transizioni\n" +
                         p.getPnml().getArcs().size() + " archi\n";
-                Log.newMessage(message);
+                MainGUI.newMessage(message);
+                logger.info(message);
 
                 int i = 0;
                 for (Transition transition:p.getPnml().getTransitions()){
@@ -181,9 +190,12 @@ public class Kgml2Pnml implements Plugin {
                     }
                 }
 
-                if (i>0) Log.newError(i + " equazioni non sono state recuperate.");
+                if (i>0){
+                    MainGUI.newMessage(i + " equazioni non sono state recuperate.");
+                    logger.error(i + " equazioni non sono state recuperate.");
+                }
 
-                Log.newMessage("\n".concat(Cache.soutEquations(false)));
+                logger.info("\n".concat(Cache.soutEquations(false)));
 
 
                 try {
@@ -268,7 +280,8 @@ public class Kgml2Pnml implements Plugin {
                 weight.setValue(String.valueOf(eq.getComponentValue(component)));
                 arc.setInscription(weight);
             } catch (Exception ex) {
-                System.out.println("eccezione");
+                MainGUI.newMessage("eccezione nell'impostazione dei pesi degli archi");
+                logger.error("eccezione nell'impostazione dei pesi degli archi");
             }
         }
 

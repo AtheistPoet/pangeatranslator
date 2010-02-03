@@ -26,6 +26,14 @@
         <attribute name="method" value="2" />
         <attribute name="URI" value="/" />
       </containerElement>
+      <containerElement type="library" name="log4j" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
+      <containerElement type="library" name="TimeNET" level="project">
+        <attribute name="method" value="2" />
+        <attribute name="URI" value="/" />
+      </containerElement>
     </containerInfo>
     <setting name="jarUrl" value="file://$MODULE_DIR$/jar/PangeaTranslator.jar" />
     <setting name="buildJar" value="true" />
@@ -45,6 +53,8 @@
     <orderEntry type="library" name="Kegg" level="project" />
     <orderEntry type="library" name="Pangea Config Types" level="project" />
     <orderEntry type="library" name="JGraph" level="project" />
+    <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="library" name="TimeNET" level="project" />
   </component>
 </module>
 
