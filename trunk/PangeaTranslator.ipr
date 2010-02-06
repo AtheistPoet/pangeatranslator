@@ -376,11 +376,13 @@
     </library>
     <library name="TimeNET">
       <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/tnet_edspn.jar!/" />
         <root url="jar://$PROJECT_DIR$/lib/tnet_scpn.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
         <root url="jar://$PROJECT_DIR$/lib/src/src_tnet_scpn.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/src/src_tnet_edspn.jar!/" />
       </SOURCES>
     </library>
   </component>

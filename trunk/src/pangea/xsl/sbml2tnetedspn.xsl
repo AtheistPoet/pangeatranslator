@@ -2,16 +2,16 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://pdv.cs.tu-berlin.de/TimeNET/schema/SCPN"  xmlns:m="http://www.w3.org/1998/Math/MathML">
 -->
 
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns="http://pdv.cs.tu-berlin.de/TimeNET/schema/SCPN"  xmlns:m="http://www.w3.org/1998/Math/MathML">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns="http://pdv.cs.tu-berlin.de/TimeNET/schema/eDSPN"  xmlns:m="http://www.w3.org/1998/Math/MathML">
 
 <xsl:param name="scaleval"/>
-<xsl:param name="dist"/>
+<xsl:param name="preemptionpolicy"/>
 
 <xsl:output indent="yes" method="xml" encoding="UTF-8" media-type="text/xml" version="1.0"/>
 
 <xsl:template match="/">
 
-	<net id="0" netclass="SCPN" xmlns="http://pdv.cs.tu-berlin.de/TimeNET/schema/SCPN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pdv.cs.tu-berlin.de/TimeNET/schema/SCPN etc/schemas/SCPN.xsd">
+	<net id="0" netclass="eDSPN" xmlns="http://pdv.cs.tu-berlin.de/TimeNET/schema/eDSPN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pdv.cs.tu-berlin.de/TimeNET/schema/eDSPN etc/schemas/eDSPN.xsd">
 	
 	<xsl:apply-templates mode="piazze" select="/sbml/model/listOfSpecies"/>
 	<xsl:apply-templates mode="transizioni" select="/sbml/model/listOfReactions"/>
@@ -24,13 +24,13 @@
 
 <xsl:template name="piazze" mode="piazze" match="listOfSpecies">
 	<xsl:for-each select="species">
-        <xsl:variable name="im"><xsl:apply-templates mode="initialMarking" select="."/></xsl:variable>
-		<place capacity="0" queue="Random" tokentype="int" type="node" watch="false">
+        <xsl:variable name="im" select="round(number(@initialAmount)*number($scaleval))"/>
+		<place type="node">
 			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="initialMarking" select="$im"/>
 			<graphics orientation="0" x="116" y="258"/>
 			<label type="text">
-				<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+				<xsl:attribute name="id"><xsl:value-of select="@id"/>.0</xsl:attribute>
 				<xsl:attribute name="text"><xsl:value-of select="@id"/></xsl:attribute>
 				<graphics x="-10" y="-40"/>
 			</label>
@@ -38,31 +38,34 @@
 	</xsl:for-each>
 </xsl:template>
 
-
+    
 <xsl:template name="transizioni" mode="transizioni" match="listOfReactions">
 	<xsl:for-each select="reaction">
-		<timedTransition serverType="ExclusiveServer" specType="Automatic" takeFirst="false" type="node" watch="false">
+
+        <exponentialTransition DTSPNpriority="1" serverType="ExclusiveServer" type="node">
+            <xsl:attribute name="preemptionPolicy" select="$preemptionpolicy"/>
 			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-			<xsl:attribute name="timeFunction"><xsl:apply-templates mode="kinetic_law" select="kineticLaw"/></xsl:attribute>
+			<xsl:attribute name="delay"><xsl:apply-templates mode="kinetic_law" select="kineticLaw"/></xsl:attribute>
 			<graphics orientation="0" x="374" y="238"/>
 			<label type="text">
-				<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+				<xsl:attribute name="id"><xsl:value-of select="@id"/>.0</xsl:attribute>
 				<xsl:attribute name="text"><xsl:value-of select="@id"/></xsl:attribute>
 				<graphics x="-10" y="-40"/>
 			</label>
-		</timedTransition>
+		</exponentialTransition>
         
         <xsl:if test="not(@reversible='false')">
-            <timedTransition serverType="ExclusiveServer" specType="Automatic" takeFirst="false" type="node" watch="false">
+            <exponentialTransition DTSPNpriority="1" serverType="ExclusiveServer" type="node">
+                <xsl:attribute name="preemptionPolicy" select="$preemptionpolicy"/>
                 <xsl:attribute name="id"><xsl:value-of select="@id"/>_rev</xsl:attribute>
-                <xsl:attribute name="timeFunction"><xsl:apply-templates mode="kinetic_law" select="kineticLaw"/></xsl:attribute>
+                <xsl:attribute name="delay"><xsl:apply-templates mode="kinetic_law" select="kineticLaw"/></xsl:attribute>
                 <graphics orientation="0" x="374" y="238"/>
                 <label type="text">
-                    <xsl:attribute name="id"><xsl:value-of select="@id"/>_rev</xsl:attribute>
+                    <xsl:attribute name="id"><xsl:value-of select="@id"/>_rev.0</xsl:attribute>
                     <xsl:attribute name="text"><xsl:value-of select="@id"/>_rev</xsl:attribute>
                     <graphics x="-10" y="-40"/>
                 </label>
-            </timedTransition>
+            </exponentialTransition>
         </xsl:if>
 		
 	</xsl:for-each>
@@ -102,7 +105,7 @@
 			<xsl:attribute name="toNode"><xsl:value-of select="$target"/></xsl:attribute>
 			<inscription type="inscriptionText">
 				<xsl:attribute name="id"><xsl:value-of select="@species"/>2<xsl:value-of select="$target"/></xsl:attribute>
-				<xsl:attribute name="text"><xsl:if test="@stoichiometry"><xsl:value-of select="@stoichiometry"/>'</xsl:if><xsl:value-of select="@species"/></xsl:attribute>
+				<xsl:attribute name="text"><xsl:choose><xsl:when test="@stoichiometry"><xsl:value-of select="@stoichiometry"/></xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose></xsl:attribute>
 				<graphics x="0" y="0"/>
 			</inscription>
 		</arc>
@@ -119,7 +122,7 @@
 			<xsl:attribute name="fromNode"><xsl:value-of select="$source"/></xsl:attribute>
 			<inscription type="inscriptionText">
 				<xsl:attribute name="id"><xsl:value-of select="$source"/>2<xsl:value-of select="@species"/></xsl:attribute>
-				<xsl:attribute name="text"><xsl:if test="@stoichiometry"><xsl:value-of select="@stoichiometry"/>'</xsl:if>new(0)</xsl:attribute>
+				<xsl:attribute name="text"><xsl:choose><xsl:when test="@stoichiometry"><xsl:value-of select="@stoichiometry"/></xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose></xsl:attribute>
 				<graphics x="0" y="0"/>
 			</inscription>
 		</arc>
@@ -132,9 +135,9 @@
 
 <xsl:template name="definizioni" mode="definizioni" match="listOfParameters">
 	<xsl:for-each select="parameter">
-		<definition type="text">
+		<definition defType="real" type="text">
 			<xsl:attribute name="expression"><xsl:value-of select="@value"/></xsl:attribute>
-			<xsl:attribute name="result"><xsl:value-of select="@id"/></xsl:attribute>
+			<xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
 			<graphics x="0" y="0"/>
 		</definition>
@@ -144,9 +147,9 @@
 
 <xsl:template name="compartments" mode="compartments" match="listOfCompartments">
 	<xsl:for-each select="compartment">
-		<definition type="text">
+		<definition defType="real" type="text">
 			<xsl:attribute name="expression"><xsl:value-of select="@size"/></xsl:attribute>
-			<xsl:attribute name="result"><xsl:value-of select="@id"/></xsl:attribute>
+			<xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
 			<graphics x="0" y="0"/>
 		</definition>
@@ -156,7 +159,7 @@
 <!-- siccome in timenet i tempi sono espressi come ritardi, bisogna usare il recproco dato che in sbml sono espressi come
  rapporti-->
 <xsl:template name="kinetic_law" mode="kinetic_law" match="kineticLaw">
-    <xsl:apply-templates mode="removespacesParam" select="."><xsl:with-param name="text"><xsl:value-of select="$dist"/>(1/<xsl:apply-templates mode="kinetic_law_passo" select="m:math/m:apply"/>)</xsl:with-param></xsl:apply-templates>
+	<xsl:apply-templates mode="removespacesParam" select="."><xsl:with-param name="text">1/<xsl:apply-templates mode="kinetic_law_passo" select="m:math/m:apply"/></xsl:with-param></xsl:apply-templates>
 </xsl:template>
 
 <xsl:template name="kinetic_law_passo" mode="kinetic_law_passo" match="m:*">
@@ -207,19 +210,6 @@
 <xsl:template name="removespacesParam" mode="removespacesParam" match="*">
     <xsl:param name="text"/>
     <xsl:value-of select="replace($text,'[ ]+','')"/>
-</xsl:template>
-
-<xsl:template name="initialMarking" mode="initialMarking" match="species">
-	<xsl:variable name="scaledim" select="round(number(@initialAmount)*number($scaleval))"/>
-	<xsl:apply-templates mode="initialMarking_passo" select="."><xsl:with-param name="iterator" select="$scaledim"/></xsl:apply-templates>
-</xsl:template>
-
-<xsl:template name="initialMarking_passo" mode="initialMarking_passo" match="*">
-	<xsl:param name="iterator"/>
-	<xsl:choose>
-		<xsl:when test="$iterator>1">0, <xsl:apply-templates mode="initialMarking_passo" select="."><xsl:with-param name="iterator" select="$iterator - 1"/></xsl:apply-templates></xsl:when>
-		<xsl:when test="$iterator=1">0</xsl:when>
-	</xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
