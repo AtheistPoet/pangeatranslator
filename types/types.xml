@@ -150,17 +150,32 @@
 
     </target>
 
-    <target name="timenet scpn types">
-        <!--<antcall target="type generator">
+    <target name="timenet scpn types passo 1">
+        <antcall target="type generator">
             <param name="xsd.file" value="timenet/SCPN.xsd"/>
             <param name="prefs.file" value="prefs.xml"/>
-        </antcall>-->
+        </antcall>
+    </target>
 
+    <target name="timenet scpn types passo 2">
         <antcall target="type binder">
             <param name="jar.file" value="tnet_scpn.jar"/>
             <param name="src.file" value="src_tnet_scpn.jar"/>
         </antcall>
+    </target>
 
+    <target name="timenet edspn types passo 1">
+        <antcall target="type generator">
+            <param name="xsd.file" value="timenet/eDSPN.xsd"/>
+            <param name="prefs.file" value="prefs.xml"/>
+        </antcall>
+    </target>
+
+    <target name="timenet edspn types passo 2">
+        <antcall target="type binder">
+            <param name="jar.file" value="tnet_edspn.jar"/>
+            <param name="src.file" value="src_tnet_edspn.jar"/>
+        </antcall>
     </target>
 
 </project>

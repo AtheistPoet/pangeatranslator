@@ -8,14 +8,11 @@ import pangea.config.Loader;
 
 import java.io.*;
 
-import pangea.xslt.XSLTransformer;
 import pangea.mem.Cache;
 import pangea.kegg.types.Equation;
 import pangea.logging.Log;
 import pangea.graphdrawing.Draw;
 import pangea.Actions;
-import pangea.sbml2tnet.Sbml2Tnet;
-import pangea.kgml2pnml.Kgml2Pnml;
 
 /*
 todo implementazione del caricamento dei plugin e dell'avvio in base alle opzioni della linea di comando
@@ -34,7 +31,7 @@ public class Test {
     public static void main(String[] args) {
         try{
             loader = new Loader();
-            System.out.println(Actions.run("sbml2tnetscpn","C:\\Users\\Francesco\\Desktop\\glicolisi.xml","C:\\Users\\Francesco\\Desktop\\glicolisi.tnet.xml"));
+            System.out.println(Actions.run("sbml2tnetedspn","C:\\Users\\Francesco\\Desktop\\glicolisi.xml","D:\\glicolisi.edspn.xml"));
         }
         catch (Exception e){
             e.printStackTrace();

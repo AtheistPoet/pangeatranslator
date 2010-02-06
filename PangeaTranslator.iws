@@ -19,25 +19,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/types/types.properties" afterPath="$PROJECT_DIR$/types/types.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/xsl/sbml2tnetscpn.xsl" afterPath="$PROJECT_DIR$/src/pangea/xsl/sbml2tnetscpn.xsl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/types/types.xml" afterPath="$PROJECT_DIR$/types/types.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pangea/sbml2tnet" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pangeatranslator.properties" afterPath="$PROJECT_DIR$/pangeatranslator.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2Tnet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pangeatranslator.xml" afterPath="$PROJECT_DIR$/pangeatranslator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pangea-config.xml" afterPath="$PROJECT_DIR$/pangea-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/Startup.java" afterPath="$PROJECT_DIR$/src/pangea/Startup.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/tester/Test.java" afterPath="$PROJECT_DIR$/src/pangea/tester/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/xslt/XSLTransformer.java" afterPath="$PROJECT_DIR$/src/pangea/xslt/XSLTransformer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PangeaTranslator.iml" afterPath="$PROJECT_DIR$/PangeaTranslator.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2TnetEDSPN.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/types/prefs/prefs.xml" afterPath="$PROJECT_DIR$/types/prefs/prefs.xml" />
+      <change type="MOVED" beforePath="D:\Projects\Java\PangeaTranslator\src\pangea\sbml2tnet\Sbml2Tnet.java" afterPath="$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2TnetSCPN.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PangeaTranslator.ipr" afterPath="$PROJECT_DIR$/PangeaTranslator.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/kgml2pnml/Kgml2Pnml.java" afterPath="$PROJECT_DIR$/src/pangea/kgml2pnml/Kgml2Pnml.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/plugins/Plugin.java" afterPath="$PROJECT_DIR$/src/pangea/plugins/Plugin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PangeaTranslator.iws" afterPath="$PROJECT_DIR$/PangeaTranslator.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/Actions.java" afterPath="$PROJECT_DIR$/src/pangea/Actions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pangea-config.xml" afterPath="$PROJECT_DIR$/pangea-config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/graphdrawing/Draw.java" afterPath="$PROJECT_DIR$/src/pangea/graphdrawing/Draw.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pangea/gui/MainGUI.java" afterPath="$PROJECT_DIR$/src/pangea/gui/MainGUI.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pangea/xsl/sbml2tnetedspn.xsl" />
     </list>
     <ignored path="PangeaTranslator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,6 +76,19 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/src/pangea/logging/Log.java" line="147" class="pangea.logging.Log" package="pangea.logging">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/pangea/graphdrawing/Draw.java" line="151" class="pangea.graphdrawing.Draw" package="pangea.graphdrawing">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -144,8 +149,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -154,28 +159,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Sbml2Tnet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2Tnet.java">
+      <file leaf-file-name="Sbml2TnetEDSPN.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2TnetEDSPN.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="29" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.0">
+            <state line="38" column="0" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pangea-config.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pangea-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="76" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Kgml2Pnml.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pangea/kgml2pnml/Kgml2Pnml.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="42" selection-start="6698" selection-end="6698" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Draw.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Draw.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pangea/graphdrawing/Draw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="44" selection-start="4084" selection-end="4084" vertical-scroll-proportion="0.9437086">
+            <state line="338" column="0" selection-start="13317" selection-end="13317" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sbml2tnetedspn.xsl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pangea/xsl/sbml2tnetedspn.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="209" column="0" selection-start="10186" selection-end="10359" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sbml2tnetscpn.xsl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pangea/xsl/sbml2tnetscpn.xsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="209" column="15" selection-start="10219" selection-end="10219" vertical-scroll-proportion="0.49475524">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Actions.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pangea/Actions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="0" selection-start="2772" selection-end="2772" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pangea/config/utils/Stage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="0" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Plugin.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pangea/config/utils/Plugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="0" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XSLTransformer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pangea/xslt/XSLTransformer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreparedStylesheet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/Projects/Java/librerie/saxon/src/net/sf/saxon/PreparedStylesheet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="197" column="0" selection-start="6353" selection-end="6353" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -277,7 +349,59 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="kgml2pnml" />
+          <option name="myItemId" value="xsl" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PangeaTranslator" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PangeaTranslator" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PangeaTranslator" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pangea" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="tester" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PangeaTranslator" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PangeaTranslator" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PangeaTranslator" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pangea" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="sbml2tnet" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -303,7 +427,7 @@
   <component name="PropertiesComponent">
     <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="false" />
@@ -317,11 +441,11 @@
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -340,13 +464,28 @@
     <option name="showLabels" value="true" />
   </component>
   <component name="RegexUtilComponent" text="&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;&#10;&lt;pnml xmlns=&quot;http://www.types.it&quot;&gt;&#10;&lt;net id=&quot;Net-One&quot; type=&quot;P/T net&quot;&gt;&#10;&lt;place id=&quot;P0&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;165.0&quot; y=&quot;120.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P0&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;3&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P1&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;420.0&quot; y=&quot;90.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P1&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;4&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P2&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;195.0&quot; y=&quot;195.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P2&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;2&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P3&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;285.0&quot; y=&quot;285.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P3&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P4&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;465.0&quot; y=&quot;255.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P4&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P5&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;570.0&quot; y=&quot;165.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P5&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P6&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;555.0&quot; y=&quot;345.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P6&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P7&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;345.0&quot; y=&quot;390.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P7&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;place id=&quot;P8&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;165.0&quot; y=&quot;390.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;P8&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;initialMarking&gt;&#10;&lt;value&gt;4&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;0.0&quot; y=&quot;0.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/initialMarking&gt;&#10;&lt;capacity&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/capacity&gt;&#10;&lt;/place&gt;&#10;&lt;transition id=&quot;T0&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;285.0&quot; y=&quot;90.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T0&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;1.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;transition id=&quot;T1&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;345.0&quot; y=&quot;195.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T1&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;8.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;41&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;transition id=&quot;T2&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;525.0&quot; y=&quot;75.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T2&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;1.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;transition id=&quot;T3&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;450.0&quot; y=&quot;345.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T3&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;1.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;transition id=&quot;T4&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;240.0&quot; y=&quot;375.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T4&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;1.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;true&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;transition id=&quot;T5&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;165.0&quot; y=&quot;270.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T5&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;4.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;true&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;transition id=&quot;T6&quot;&gt;&#10;&lt;graphics&gt;&#10;&lt;position x=&quot;90.0&quot; y=&quot;180.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;name&gt;&#10;&lt;value&gt;T6&lt;/value&gt;&#10;&lt;graphics&gt;&#10;&lt;offset x=&quot;-5.0&quot; y=&quot;35.0&quot;/&gt;&#10;&lt;/graphics&gt;&#10;&lt;/name&gt;&#10;&lt;orientation&gt;&#10;&lt;value&gt;0&lt;/value&gt;&#10;&lt;/orientation&gt;&#10;&lt;rate&gt;&#10;&lt;value&gt;1.0&lt;/value&gt;&#10;&lt;/rate&gt;&#10;&lt;timed&gt;&#10;&lt;value&gt;true&lt;/value&gt;&#10;&lt;/timed&gt;&#10;&lt;infiniteServer&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/infiniteServer&gt;&#10;&lt;priority&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;/priority&gt;&#10;&lt;/transition&gt;&#10;&lt;arc id=&quot;P0 to T0&quot; source=&quot;P0&quot; target=&quot;T0&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;191&quot; y=&quot;127&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;292&quot; y=&quot;96&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P1 to T1&quot; source=&quot;P1&quot; target=&quot;T1&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;424&quot; y=&quot;115&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;362&quot; y=&quot;202&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P1 to T2&quot; source=&quot;P1&quot; target=&quot;T2&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;446&quot; y=&quot;99&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;531&quot; y=&quot;87&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P2 to T0&quot; source=&quot;P2&quot; target=&quot;T0&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;2&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;217&quot; y=&quot;196&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;291&quot; y=&quot;103&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P3 to T4&quot; source=&quot;P3&quot; target=&quot;T4&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;291&quot; y=&quot;310&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;252&quot; y=&quot;372&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P4 to T1&quot; source=&quot;P4&quot; target=&quot;T1&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value/&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;463&quot; y=&quot;259&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;361&quot; y=&quot;212&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;inhibitor&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P4 to T2&quot; source=&quot;P4&quot; target=&quot;T2&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;483&quot; y=&quot;253&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;537&quot; y=&quot;102&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P7 to T3&quot; source=&quot;P7&quot; target=&quot;T3&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;370&quot; y=&quot;396&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;456&quot; y=&quot;357&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P8 to T4&quot; source=&quot;P8&quot; target=&quot;T4&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;191&quot; y=&quot;399&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;246&quot; y=&quot;387&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P8 to T5&quot; source=&quot;P8&quot; target=&quot;T5&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;179&quot; y=&quot;387&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;177&quot; y=&quot;297&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;P8 to T6&quot; source=&quot;P8&quot; target=&quot;T6&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;172&quot; y=&quot;387&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;102&quot; y=&quot;207&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T0 to P1&quot; source=&quot;T0&quot; target=&quot;P1&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;2&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;301&quot; y=&quot;102&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;417&quot; y=&quot;102&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T0 to P2&quot; source=&quot;T0&quot; target=&quot;P2&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;291&quot; y=&quot;110&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;216&quot; y=&quot;195&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T1 to P2&quot; source=&quot;T1&quot; target=&quot;P2&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;351&quot; y=&quot;207&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;221&quot; y=&quot;206&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T1 to P3&quot; source=&quot;T1&quot; target=&quot;P3&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;357&quot; y=&quot;222&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;306&quot; y=&quot;285&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T2 to P5&quot; source=&quot;T2&quot; target=&quot;P5&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;541&quot; y=&quot;87&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;575&quot; y=&quot;163&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T3 to P4&quot; source=&quot;T3&quot; target=&quot;P4&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;462&quot; y=&quot;342&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;474&quot; y=&quot;281&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T3 to P6&quot; source=&quot;T3&quot; target=&quot;P6&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;466&quot; y=&quot;357&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;552&quot; y=&quot;357&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T4 to P7&quot; source=&quot;T4&quot; target=&quot;P7&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;256&quot; y=&quot;387&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;342&quot; y=&quot;399&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T5 to P2&quot; source=&quot;T5&quot; target=&quot;P2&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;181&quot; y=&quot;282&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;202&quot; y=&quot;221&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;arc id=&quot;T6 to P0&quot; source=&quot;T6&quot; target=&quot;P0&quot;&gt;&#10;&lt;graphics/&gt;&#10;&lt;inscription&gt;&#10;&lt;value&gt;1&lt;/value&gt;&#10;&lt;graphics/&gt;&#10;&lt;/inscription&gt;&#10;&lt;tagged&gt;&#10;&lt;value&gt;false&lt;/value&gt;&#10;&lt;/tagged&gt;&#10;&lt;arcpath id=&quot;000&quot; x=&quot;106&quot; y=&quot;192&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;arcpath id=&quot;001&quot; x=&quot;165&quot; y=&quot;141&quot; curvePoint=&quot;false&quot;/&gt;&#10;&lt;type value=&quot;normal&quot;/&gt;&#10;&lt;/arc&gt;&#10;&lt;/net&gt;&#10;&lt;/pnml&gt;&#10;" flags="8" regex="\&lt;initialMarking\&gt;.*\&lt;/initialMarking\&gt;" mode="0" />
-  <component name="RunManager" selected="Application.GUI">
+  <component name="RunManager" selected="Application.Test">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false" runner="emma">
       <module name="" />
@@ -373,21 +512,6 @@
       <envs />
       <properties />
       <listeners />
-    </configuration>
-    <configuration default="true" type="XSLT" factoryName="XSLT">
-      <option name="myOutputFile" />
-      <option name="myOpenOutputFile" value="false" />
-      <option name="myOpenInBrowser" value="false" />
-      <option name="mySmartErrorHandling" value="true" />
-      <option name="myRunnerPort" value="34873" />
-      <option name="myVmArguments" />
-      <option name="myWorkingDirectory" />
-      <option name="myModule" />
-      <option name="myJdk" />
-      <parameters />
-      <OutputType value="CONSOLE" />
-      <FileType name="XML" />
-      <JdkChoice value="FROM_MODULE" />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
@@ -559,7 +683,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21248986" sideWeight="0.6603175" order="0" side_tool="false" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21248986" sideWeight="0.7095238" order="0" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" />
@@ -714,116 +838,159 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pangea-config.xml">
+    <entry file="file://D:/Projects/Java/librerie/saxon/src/net/sf/saxon/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="79" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.0">
+        <state line="1806" column="0" selection-start="72478" selection-end="72478" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Projects/Java/librerie/jibx/build/src/org/jibx/runtime/BindingDirectory.java">
+    <entry file="file://D:/Projects/Java/librerie/saxon/src/net/sf/saxon/TransformerFactoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="34" selection-start="8973" selection-end="8973" vertical-scroll-proportion="0.0">
+        <state line="138" column="0" selection-start="4767" selection-end="4767" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pangea/xsl/sbml2tnetscpn.xsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="88" selection-start="8817" selection-end="8817" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Projects/Java/librerie/jibx/build/src/org/jibx/runtime/IMarshallingContext.java">
+    <entry file="jar://$PROJECT_DIR$/lib/src/src_tnet_edspn.jar!/timenet/edspn/type/NetType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/types/prefs/prefs_fake.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/types/types.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="27" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/types/types.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="12" selection-start="4659" selection-end="4659" vertical-scroll-proportion="-9.375">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/src/src_tnet_scpn.jar!/timenet/common/type/NetType.java">
+    <entry file="jar://$PROJECT_DIR$/lib/src/src_tnet_edspn.jar!/timenet/edspn/type/EDSPNNet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="12" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="13" column="0" selection-start="444" selection-end="478" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1265413688000" expanded="true" signature="37:515" placeholder="..." />
+            <marker date="1265413688000" expanded="true" signature="517:1934" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="2793:2879" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="2919:2952" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="2958:3043" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="3092:3125" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="3131:3233" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="3305:3354" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="3360:3461" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="3542:3591" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="3597:3697" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="3765:3812" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="3818:3917" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="3994:4041" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="4047:4151" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="4227:4278" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="4284:4387" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="4485:4536" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="4542:4640" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="4704:4749" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="4755:4852" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="4925:4970" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="4976:5060" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="5096:5127" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="5133:5216" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="5261:5292" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="5298:5386" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="5430:5465" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="5471:5558" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="5611:5646" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="5652:5740" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="5784:5819" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="5825:5912" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="5965:6000" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="6006:6097" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="6147:6185" placeholder="{...}" />
+            <marker date="1265413688000" expanded="true" signature="6191:6281" placeholder="/**...*/" />
+            <marker date="1265413688000" expanded="true" signature="6340:6378" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/types/java/timenet/common/type/NetType.java">
+    <entry file="file://$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2TnetSCPN.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="34" selection-start="450" selection-end="450" vertical-scroll-proportion="0.4633731">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/src/src_tnet_scpn.jar!/timenet/common/type/NodeType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/types/java/binding.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="123" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/types/prefs/prefs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pangeatranslator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="45" selection-start="8072" selection-end="8072" vertical-scroll-proportion="0.35929203">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2Tnet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="29" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.0">
+        <state line="49" column="56" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pangea/kgml2pnml/Kgml2Pnml.java">
+    <entry file="file://$PROJECT_DIR$/src/pangea/xslt/XSLTransformer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="42" selection-start="6698" selection-end="6698" vertical-scroll-proportion="0.0">
+        <state line="23" column="0" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/Java/librerie/saxon/src/net/sf/saxon/PreparedStylesheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="197" column="0" selection-start="6353" selection-end="6353" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pangea-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="76" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pangea/config/utils/Plugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pangea/config/utils/Stage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pangea/Actions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="0" selection-start="2772" selection-end="2772" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pangea/sbml2tnet/Sbml2TnetEDSPN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pangea/graphdrawing/Draw.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="44" selection-start="4084" selection-end="4084" vertical-scroll-proportion="0.9437086">
+        <state line="338" column="0" selection-start="13317" selection-end="13317" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pangea/xsl/sbml2tnetedspn.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="0" selection-start="10186" selection-end="10359" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pangea/xsl/sbml2tnetscpn.xsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="15" selection-start="10219" selection-end="10219" vertical-scroll-proportion="0.49475524">
           <folding />
         </state>
       </provider>

@@ -4,6 +4,7 @@
     <schema-set package="pangea.config.type" names="pangea_config.xsd"/>
     <schema-set package="jp.genome.kegg.type" names="KGML061.xsd"/>
     <schema package="timenet.scpn.type" name="SCPN.xsd"/>
-    <schema package="timenet.common.type" name="net-objects.xsd"/>
-    <schema package="timenet.common.type" name="graph.xsd"/>
+    <schema package="timenet.edspn.type" name="eDSPN.xsd"/>
+    <schema package="timenet.edspn.type" name="net-objects.xsd"/>
+    <schema package="timenet.edspn.type" name="graph.xsd"/>
 </schema-set>
