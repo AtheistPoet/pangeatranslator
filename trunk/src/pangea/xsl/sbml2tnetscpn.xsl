@@ -209,8 +209,14 @@
     <xsl:value-of select="replace($text,'[ ]+','')"/>
 </xsl:template>
 
+<!--ATTENZIONE...VEDERE COME GESTIRE INITIAL AMOUNT E INITIAL CONCENTRATION-->
 <xsl:template name="initialMarking" mode="initialMarking" match="species">
-	<xsl:variable name="scaledim" select="round(number(@initialAmount)*number($scaleval))"/>
+	<xsl:variable name="conc"><xsl:choose>
+		<xsl:when test="@initialConcentration"><xsl:value-of select="@initialConcentration"/></xsl:when>
+		<xsl:when test="@initialAmount"><xsl:value-of select="@initialAmount"/></xsl:when>
+		<xsl:otherwise>0</xsl:otherwise>
+	</xsl:choose></xsl:variable>
+	<xsl:variable name="scaledim" select="round(number($conc)*number($scaleval))"/>
 	<xsl:apply-templates mode="initialMarking_passo" select="."><xsl:with-param name="iterator" select="$scaledim"/></xsl:apply-templates>
 </xsl:template>
 
