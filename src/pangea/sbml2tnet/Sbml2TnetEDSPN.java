@@ -4,16 +4,23 @@ import org.jibx.runtime.IMarshallingContext;
 import org.jibx.runtime.IUnmarshallingContext;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
-import java.io.IOException;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.Hashtable;
 
 import pangea.graphdrawing.Draw;
 import pangea.plugins.Plugin;
 
 import timenet.edspn.type.*;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +32,48 @@ import timenet.edspn.type.*;
 public class Sbml2TnetEDSPN  implements Plugin {
     @Override
     public Hashtable<String,String> pre(Hashtable params, String input, String output) {
-        //non fare nulla, basta la trasformazione
+
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        Document doc;
+
+        try {
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            doc = db.parse(new File(input));
+
+            doc.getAttributes();
+            Node node = doc.getElementsByTagName("sbml").item(0);
+
+            try{
+                Element el = (Element) node;
+                String attval = el.getAttribute("xmlns");
+                el.removeAttribute("xmlns");
+                if (attval!=null && !attval.equals("")){
+                    el.setAttribute("xmlns:sl2",attval);
+                }
+            }
+            catch(Exception ex){
+                //donothing
+            }
+
+			OutputFormat format = new OutputFormat(doc);
+			format.setIndenting(true);
+            format.setEncoding("UTF-8");
+
+            OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(input),"UTF-8");
+
+			XMLSerializer serializer = new XMLSerializer();
+
+            serializer.setOutputFormat(format);
+		    serializer.setOutputCharStream(osw);
+		    serializer.serialize(doc);
+
+            osw.flush();
+            osw.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Hashtable<String,String> xslparams = new Hashtable<String, String>(1);
         xslparams.put("scaleval","1000");
         xslparams.put("preemptionpolicy","PRD");
