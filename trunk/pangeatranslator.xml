@@ -44,6 +44,7 @@
     <include name="**/?*.ftl"/>
     <include name="**/?*.xsl"/>
   </patternset>
+
   
   <!-- JDK definitions -->
   
@@ -197,6 +198,16 @@
       <include name="src"/>
     </dirset>
   </path>
+
+
+  <patternset id="xsl.files">
+    <include name="**/?*.xsl"/>
+  </patternset>
+
+  <patternset id="startup.files">
+    <include name="**/?*.bat"/>
+    <include name="**/?*.sh"/>
+  </patternset>
   
   
   <target name="compile.module.pangeatranslator" depends="compile.module.pangeatranslator.production,compile.module.pangeatranslator.tests" description="Compile module PangeaTranslator"/>
@@ -233,4 +244,29 @@
   <target name="clean" depends="clean.module.pangeatranslator" description="cleanup all"/>
   
   <target name="all" depends="init, clean, compile.module.pangeatranslator" description="build all"/>
+
+
+  <target name="prod-zip" description="generates production zip">
+    <!-- compile pangeatranslator.jar and copy all libraries into jar folder -->
+    <mkdir dir="${basedir}/jar/xsl"/>
+    <copy todir="${basedir}/jar/xsl">
+      <fileset dir="${basedir}/src/pangea/xsl">
+        <patternset refid="xsl.files"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+    <copy todir="${basedir}/jar">
+      <fileset dir="${basedir}">
+        <filename name="pangea-config.xml"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+    <copy todir="${basedir}/jar">
+      <fileset dir="${basedir}/Config">
+        <patternset refid="startup.files"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+    <zip destfile="${basedir}/PangeaTranslator.zip" basedir="${basedir}/jar"/>
+  </target>
 </project>

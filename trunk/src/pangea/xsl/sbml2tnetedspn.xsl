@@ -24,7 +24,14 @@
 
 <xsl:template name="piazze" mode="piazze" match="listOfSpecies">
 	<xsl:for-each select="species">
-        <xsl:variable name="im" select="round(number(@initialAmount)*number($scaleval))"/>
+        <xsl:variable name="im"><xsl:choose>
+            <xsl:when test="@initialConcentration">
+                <xsl:value-of select="round(number(@initialConcentration)*number($scaleval))"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="round(number(@initialAmount)*number($scaleval))"/>
+            </xsl:otherwise>
+        </xsl:choose></xsl:variable>
 		<place type="node">
 			<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="initialMarking" select="$im"/>
@@ -159,23 +166,24 @@
 <!-- siccome in timenet i tempi sono espressi come ritardi, bisogna usare il recproco dato che in sbml sono espressi come
  rapporti-->
 <xsl:template name="kinetic_law" mode="kinetic_law" match="kineticLaw">
-	<xsl:apply-templates mode="removespacesParam" select="."><xsl:with-param name="text">1/<xsl:apply-templates mode="kinetic_law_passo" select="m:math/m:apply"/></xsl:with-param></xsl:apply-templates>
+	<xsl:apply-templates mode="removespacesParam" select="."><xsl:with-param name="text">1/<xsl:apply-templates mode="kinetic_law_passo" select="m:math/m:apply"><xsl:with-param name="reactionId" select="../@id"/></xsl:apply-templates></xsl:with-param></xsl:apply-templates>
 </xsl:template>
 
 <xsl:template name="kinetic_law_passo" mode="kinetic_law_passo" match="m:*">
+	<xsl:param name="reactionId"/>
 	<xsl:choose>
 		<!-- OPERAZIONI -->
-		<xsl:when test="name()='times'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">*</xsl:with-param></xsl:apply-templates></xsl:when>
-		<xsl:when test="name()='minus'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">-</xsl:with-param></xsl:apply-templates></xsl:when>
-		<xsl:when test="name()='plus'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">+</xsl:with-param></xsl:apply-templates></xsl:when>
-		<xsl:when test="name()='divide'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">/</xsl:with-param></xsl:apply-templates></xsl:when>
-		<xsl:when test="name()='power'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">^</xsl:with-param></xsl:apply-templates></xsl:when>
+		<xsl:when test="name()='times'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">*</xsl:with-param><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
+		<xsl:when test="name()='minus'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">-</xsl:with-param><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
+		<xsl:when test="name()='plus'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">+</xsl:with-param><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
+		<xsl:when test="name()='divide'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">/</xsl:with-param><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
+		<xsl:when test="name()='power'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">^</xsl:with-param><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
 		
 		<!-- OPERANDI -->
 		<xsl:when test="name()='cn'"><xsl:value-of select="text()"/></xsl:when>
-		<xsl:when test="name()='ci'"><xsl:apply-templates mode="kinetic_law_species" select="."/></xsl:when>
+		<xsl:when test="name()='ci'"><xsl:apply-templates mode="kinetic_law_species" select="."><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
 		
-		<xsl:when test="name()='apply'">(<xsl:apply-templates mode="kinetic_law_passo" select="*[1]"/>)</xsl:when>
+		<xsl:when test="name()='apply'">(<xsl:apply-templates mode="kinetic_law_passo" select="*[1]"><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates>)</xsl:when>
 		
 		<xsl:otherwise>RIVEDERE XSL E AGGIUNGERE L'OPERAZIONE</xsl:otherwise>
 	</xsl:choose>
@@ -184,20 +192,25 @@
 
 <xsl:template name="kinetic_law_operazione" mode="kinetic_law_operazione" match="m:*">
 	<xsl:param name="operatore"/>
+	<xsl:param name="reactionId"/>
 	<xsl:for-each select="*">
 		<xsl:choose>
 			<xsl:when test="position()=1"></xsl:when>
-			<xsl:when test="position()=last()"><xsl:apply-templates mode="kinetic_law_passo" select="."/></xsl:when>
-			<xsl:otherwise><xsl:apply-templates mode="kinetic_law_passo" select="."/><xsl:value-of select="$operatore"/></xsl:otherwise>
+			<xsl:when test="position()=last()"><xsl:apply-templates mode="kinetic_law_passo" select="."><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
+			<xsl:otherwise><xsl:apply-templates mode="kinetic_law_passo" select="."><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates><xsl:value-of select="$operatore"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:for-each>
 </xsl:template>
 
 <xsl:template name="kinetic_law_species" mode="kinetic_law_species" match="m:ci">
+	<xsl:param name="reactionId"/>
 	<xsl:variable name="text"><xsl:apply-templates mode="trim" select="."/></xsl:variable>
 	<xsl:choose>
 		<xsl:when test="count(/sbml/model/listOfSpecies/species[@id = $text])>0"><xsl:value-of select="concat('#',$text)"/></xsl:when>
-		<xsl:otherwise><xsl:value-of select="$text"/></xsl:otherwise>
+		<xsl:otherwise><xsl:choose>
+			<xsl:when test="/sbml/model/listOfReactions/reaction[@id=$reactionId]/kineticLaw/listOfParameters/parameter[@id=$text]"><xsl:value-of select="/sbml/model/listOfReactions/reaction[@id=$reactionId]/kineticLaw/listOfParameters/parameter[@id=$text]/@value"/></xsl:when>
+			<xsl:otherwise><xsl:value-of select="$text"/></xsl:otherwise>
+		</xsl:choose></xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
 
