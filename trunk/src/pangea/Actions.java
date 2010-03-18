@@ -28,7 +28,7 @@ public class Actions extends Thread{
 
         try{
             File foutput = new File(output);
-            if (!foutput.createNewFile()) err = err.concat("File di output non presente.\n");
+            if (!(foutput.exists() && foutput.isFile()) && !foutput.createNewFile()) err = err.concat("File di output non presente.\n");
         }catch (Exception ex){
             err = err.concat("File di output non presente.\n");
         }

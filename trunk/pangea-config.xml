@@ -73,6 +73,14 @@
 		<pre>
 			<package>pangea.sbml2tnet</package>
 			<class>Sbml2TnetSCPN</class>
+            <parameter>
+                <name>upscaleval</name>
+                <value>1</value>
+            </parameter>
+            <parameter>
+                <name>dist_type</name>
+                <value>EXP</value>
+            </parameter>
 		</pre>
         <post>
 			<package>pangea.sbml2tnet</package>

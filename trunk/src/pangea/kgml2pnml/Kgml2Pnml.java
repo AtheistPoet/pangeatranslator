@@ -8,9 +8,7 @@ import pangea.pnml.type.Transition;
 import pangea.kegg.types.Equation;
 import pangea.kegg.types.EqElement;
 import pangea.mem.Cache;
-import pangea.logging.Log;
 import pangea.graphdrawing.Draw;
-import pangea.gui.MainGUI;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -55,7 +53,6 @@ public class Kgml2Pnml implements Plugin {
             /*
             recupero lista componenti effettivamente utilizzati e aggiornamento reazioni nel KGML
              */
-            MainGUI.newMessage("recupero lista componenti effettivamente utilizzati e aggiornamento reazioni nel KGML");
             for (Reaction reaction:reactions){
                 Equation eq = Cache.getReaction(reaction.getName());
 
@@ -99,7 +96,6 @@ public class Kgml2Pnml implements Plugin {
             }
 
             //memorizzazione composti utilizzati e riscrittura nel KGML
-            MainGUI.newMessage("memorizzazione composti utilizzati e riscrittura nel KGML");
             for (Entry e:path.getEntries()){
                 if (components.get(e.getName())!=null){
                     components.put(e.getName(),e);
@@ -176,7 +172,6 @@ public class Kgml2Pnml implements Plugin {
                         p.getPnml().getPlaces().size() + " posti\n" +
                         p.getPnml().getTransitions().size() + " transizioni\n" +
                         p.getPnml().getArcs().size() + " archi\n";
-                MainGUI.newMessage(message);
                 logger.info(message);
 
                 int i = 0;
@@ -191,8 +186,7 @@ public class Kgml2Pnml implements Plugin {
                 }
 
                 if (i>0){
-                    MainGUI.newMessage(i + " equazioni non sono state recuperate.");
-                    logger.error(i + " equazioni non sono state recuperate.");
+                    logger.warn(i + " equazioni non sono state recuperate.");
                 }
 
                 logger.info("\n".concat(Cache.soutEquations(false)));
@@ -202,6 +196,7 @@ public class Kgml2Pnml implements Plugin {
                     JFrame frame = Draw.draw(p,true);
                     frame.setVisible(true);
                 } catch (Exception e) {
+                    logger.error(e.getMessage());
                     e.printStackTrace();
                 }
 
@@ -209,11 +204,13 @@ public class Kgml2Pnml implements Plugin {
 
 
             } catch (JiBXException e) {
+                logger.error(e.getMessage());
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
-                System.out.println("eccezione nel file xml");
+                logger.error("eccezione nel file xml");
                 e.printStackTrace();
             } catch (IOException e) {
+                logger.error(e.getMessage());
                 e.printStackTrace();
             } finally {
 
@@ -280,7 +277,6 @@ public class Kgml2Pnml implements Plugin {
                 weight.setValue(String.valueOf(eq.getComponentValue(component)));
                 arc.setInscription(weight);
             } catch (Exception ex) {
-                MainGUI.newMessage("eccezione nell'impostazione dei pesi degli archi");
                 logger.error("eccezione nell'impostazione dei pesi degli archi");
             }
         }

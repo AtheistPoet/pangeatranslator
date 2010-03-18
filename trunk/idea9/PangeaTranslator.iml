@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/types/classes" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Saxon" level="project" />
+    <orderEntry type="library" name="PNML Types" level="project" />
+    <orderEntry type="library" name="Kegg" level="project" />
+    <orderEntry type="library" name="Pangea Config Types" level="project" />
+    <orderEntry type="library" name="JGraph" level="project" />
+    <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="library" name="TimeNET" level="project" />
+  </component>
+</module>
+

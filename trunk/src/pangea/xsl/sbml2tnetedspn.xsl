@@ -84,6 +84,10 @@
 		<xsl:apply-templates mode="archiInput" select="listOfReactants">
 			<xsl:with-param name="target" select="@id"/>
 		</xsl:apply-templates>
+
+        <xsl:apply-templates mode="archiModificatori" select="listOfModifiers">
+                <xsl:with-param name="target" select="@id"/>
+            </xsl:apply-templates>
 		
 		<xsl:apply-templates mode="archiOutput" select="listOfProducts">
 			<xsl:with-param name="source" select="@id"/>
@@ -91,6 +95,10 @@
 
         <xsl:if test="not(@reversible='false')">
             <xsl:apply-templates mode="archiInput" select="listOfProducts">
+                <xsl:with-param name="target" select="concat(@id,'_rev')"/>
+            </xsl:apply-templates>
+
+            <xsl:apply-templates mode="archiModificatori" select="listOfModifiers">
                 <xsl:with-param name="target" select="concat(@id,'_rev')"/>
             </xsl:apply-templates>
 
@@ -114,9 +122,25 @@
 				<xsl:attribute name="id"><xsl:value-of select="@species"/>2<xsl:value-of select="$target"/></xsl:attribute>
 				<xsl:attribute name="text"><xsl:choose><xsl:when test="@stoichiometry"><xsl:value-of select="@stoichiometry"/></xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose></xsl:attribute>
 				<graphics x="0" y="0"/>
-			</inscription>
-		</arc>
-	</xsl:for-each>
+            </inscription>
+        </arc>
+    </xsl:for-each>
+</xsl:template>
+
+<xsl:template name="archiModificatori" mode="archiModificatori" match="listOfModifiers">
+    <xsl:param name="target"/>
+    <xsl:for-each select="modifierSpeciesReference">
+		<arc type="connector">
+			<xsl:attribute name="id"><xsl:value-of select="@species"/>2<xsl:value-of select="$target"/></xsl:attribute>
+			<xsl:attribute name="fromNode"><xsl:value-of select="@species"/></xsl:attribute>
+			<xsl:attribute name="toNode"><xsl:value-of select="$target"/></xsl:attribute>
+			<inscription type="inscriptionText">
+				<xsl:attribute name="id"><xsl:value-of select="@species"/>2<xsl:value-of select="$target"/></xsl:attribute>
+				<xsl:attribute name="text"><xsl:choose><xsl:when test="@stoichiometry"><xsl:value-of select="@stoichiometry"/></xsl:when><xsl:otherwise>1</xsl:otherwise></xsl:choose></xsl:attribute>
+				<graphics x="0" y="0"/>
+            </inscription>
+        </arc>
+    </xsl:for-each>
 </xsl:template>
 
 
@@ -180,6 +204,7 @@
 		<xsl:when test="name()='power'"><xsl:apply-templates mode="kinetic_law_operazione" select=".."><xsl:with-param name="operatore">^</xsl:with-param><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
 		
 		<!-- OPERANDI -->
+        <xsl:when test="name()='cn' and @type='e-notation'"><xsl:apply-templates mode="cnE" select="."/></xsl:when>
 		<xsl:when test="name()='cn'"><xsl:value-of select="text()"/></xsl:when>
 		<xsl:when test="name()='ci'"><xsl:apply-templates mode="kinetic_law_species" select="."><xsl:with-param name="reactionId" select="$reactionId"/></xsl:apply-templates></xsl:when>
 		
@@ -223,6 +248,12 @@
 <xsl:template name="removespacesParam" mode="removespacesParam" match="*">
     <xsl:param name="text"/>
     <xsl:value-of select="replace($text,'[ ]+','')"/>
+</xsl:template>
+
+
+
+<xsl:template name="cnE" mode="cnE" match="m:cn">
+    (<xsl:value-of select="subsequence(node(),1,1)"/>*10*(<xsl:value-of select="subsequence(node(),3)"/>))
 </xsl:template>
 
 </xsl:stylesheet>
