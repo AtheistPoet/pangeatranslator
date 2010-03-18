@@ -42,7 +42,7 @@ public class Test {
     public static void main(String[] args) {
         try{
             loader = new Loader();
-            System.out.println(Actions.run("sbml2tnetedspn","C:\\Users\\Francesco\\Desktop\\BIOMD0000000023.xml","D:\\BIOMD0000000023.edspn.new.xml"));
+            System.out.println(Actions.run("sbml2tnetscpn","C:\\Users\\Francesco De Nes\\Desktop\\BIOMD0000000068.xml","D:\\BIOMD0000000068.scpn.xml"));
         }
         catch (Exception e){
             e.printStackTrace();

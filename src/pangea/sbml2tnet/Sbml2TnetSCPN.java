@@ -1,5 +1,6 @@
 package pangea.sbml2tnet;
 
+import pangea.config.utils.Parameter;
 import pangea.plugins.Plugin;
 import pangea.graphdrawing.Draw;
 
@@ -32,7 +33,7 @@ import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
  */
 public class Sbml2TnetSCPN implements Plugin {
     @Override
-    public Hashtable<String,String> pre(Hashtable params, String input, String output) {
+    public Hashtable<String,String> pre(Hashtable<String, Parameter> params, String input, String output) {
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         Document doc;
@@ -76,13 +77,15 @@ public class Sbml2TnetSCPN implements Plugin {
         }
 
         Hashtable<String,String> xslparams = new Hashtable<String, String>(1);
-        xslparams.put("scaleval","1000");
-        xslparams.put("dist","EXP");
+        Parameter param = params.get("upscaleval");
+        xslparams.put("scaleval",param==null?"1":param.getValue());
+        param = params.get("dist_type");
+        xslparams.put("dist",param==null?"EXP":param.getValue());
         return xslparams;
     }
 
     @Override
-    public void post(Hashtable params, String input, String output) {
+    public void post(Hashtable<String, Parameter> params, String input, String output) {
         FileInputStream fis=null;
         try{
             IBindingFactory bfact = BindingDirectory.getFactory(SCPNNet.class);
