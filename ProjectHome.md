@@ -1,0 +1,1 @@
+Traduttore da kgml a pnml con interfaccia grafica.
